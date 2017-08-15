@@ -1,4 +1,5 @@
 # Imperium
+[![Build Status](https://travis-ci.org/tobnys/Imperium.svg?branch=master)](https://travis-ci.org/tobnys/Imperium)
 
 Imperium is a web based RPG game built with JavaScript.
 
