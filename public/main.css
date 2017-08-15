@@ -100,19 +100,6 @@ main {
     transition: box-shadow 0.2s ease;
 }
 
-.card h2 {
-    font-size: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-}
-
-.card p {
-    padding: 20px;
-    font-size: 14px;
-    margin-top: -30px;
-}
-
 em {
     text-decoration: none;
     font-style: normal;
