@@ -25,7 +25,7 @@
       <div class="game-window">
 
         <div class="row row-center">
-          <div class="col stat-list">
+          <div class="col col-center-t stat-list">
               <ul>
                   <li id="name">Name:</li>
                   <li id="score">Score: 1337</li>
@@ -46,10 +46,21 @@
           </div>
         </div>
 
+
+
+
         <div class="row">
           <div class="col game-content">
             <div class="col buy-panel">
-              <h2>Tutorial</h2>
+              <h2>Worker</h2>
+              <hr>
+              <p>Generates 1 money per second.</p>
+              <div class="col worker-cost">
+                <p id="worker-cost">Cost: $100</p>
+              </div>
+              <div class="col col-btn">
+                  <button class="js-worker-btn buy-btn">Buy!</button>
+              </div>
             </div>
           </div>       
         </div>
@@ -63,6 +74,6 @@
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-    <script src="/game/game.js"></script>
+    <script src="/game/economics.js"></script>
   </body>
 </html>
