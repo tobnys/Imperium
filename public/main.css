@@ -10,7 +10,7 @@ html {
 }
 
 main {
-    padding-top: 300px;
+    padding-top: 60px;
 }
 
 .row-center {
@@ -26,63 +26,104 @@ main {
     text-align: center;
 }
 
+.content1 {
+    width: 100%;
+    height: 600px;
+    background-color: #94AAD6;
+}
+
+.content1 h1 {
+    margin-top: 100px;
+}
+
+/* GAME CSS */
+.game-window {
+    width: 100%;
+    height: 1000px;
+    background-color: #94AAD6;
+}
+
+.game-window h1 {
+    margin-top: 100px;
+}
+
+.sidebar {
+    background-color: #FFFFFF;
+    max-width: 25%;
+    height: 300px;
+    border: 2px solid black;
+}
+
+.sidebar h1 {
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+}
+
+.sidebar p {
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.game-content {
+    border: 2px solid black;
+    background-color: #FFFFFF;
+}
+
+.game-content h1 {
+    font-size: 25px;
+    text-align: center;
+    margin: 0;
+}
+
+.game-content p {
+    font-size: 16px;
+    padding-left: 5px;
+}
+
 .navbar {
     position: fixed;
     background-color: #37474f;
     width: 100%;
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: center;
     top: 0;
     z-index: 100;
 }
 
-.navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 25px;
-    transition: color 0.2s, border-bottom 0.2s;
-}
-
-.navbar a:hover {
-    color: #a7c0cd;
-    border-bottom: 5px solid #a7c0cd;
-    transition: color 0.2s, border-bottom 0.2s;
-}
-
 .navbar li {
     display: inline-block;
 }
 
-.main-input {
-    color: black;
-    height: 70px;
-    width: 60%;
-    font-size: 28px;
-    margin-top: 20px;
-    padding-left: 20px;
-}
-
-.main-form-btn {
-    margin-top: 20px;
-    color:black;
-    height: 50px;
-    width: 15%;
-    font-size: 20px;
-    color: black;
-    background-color: white;
-    border: 1px solid black;
+.normal-btn {
+    float: left;
+    display: block;
+    color: #f2f2f2;
     text-decoration: none;
-    transition: color 0.4s, background-color 0.4s;
+    font-size: 12px;
+    padding: 20px;
+    transition: color 0.2s background-color 0.5s;
 }
 
-.main-form-btn:hover {
-    color: #a7c0cd;
-    background-color: #37474f;  
-    transition: color 0.4s, background-color 0.4s;
+.normal-btn:hover {
+    background-color: #5A7482;
+    transition: background-color 0.4s;
+}
+
+.user-btn {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 20px;
+    transition: background-color 0.5s;
+}
+
+.user-btn:hover {
+    background-color: #5A7482;
+    transition: background-color 0.4s;
 }
 
 .card {
@@ -100,56 +141,13 @@ main {
     transition: box-shadow 0.2s ease;
 }
 
-em {
-    text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
-}
-
-.footer-container {
-    background-color: #37474f;
-    margin-top:300px;
-    height:200px;
-    position:relative;
-    bottom:0;
-}
-
-.footer-container h3 {
-    font-size: 16px;
-    margin-top: 20px;
-    padding-bottom: 20px;
-    color: white;
-}
-
-.footer-container a {
-    font-size: 15px;
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-    text-decoration: none;
-    display: inline-block;
-    height: 40px;
-    width: 140px;
-    align-content: center;
-    transition: color 0.4s, background-color 0.4s;
-}
-
-.footer-container p {
-    padding-top: 8px;
-}
-
-.footer-container a:hover {
-    color: #a7c0cd;
-    background-color: #37474f;  
-    transition: color 0.4s, background-color 0.4s;
-}
 
 /* Small screens */
-@media (max-width: 575px) { 
+@media (max-width: 575px) {
     main {
-        padding-top: 150px;
+        padding-top: 50px;
     }
-
+    
     .current h1 {
         font-size: 25px;
         margin-bottom: 20px;
@@ -171,9 +169,8 @@ em {
         display: block;
         color: #f2f2f2;
         text-decoration: none;
-        font-size: 15px;
+        font-size: 14px;
         padding-top: 15px;
-        margin-left: 25px;
     }
     .col-center {
         max-width: 100%;
@@ -181,7 +178,7 @@ em {
     .col-center-t {
     max-width: 100%;
     text-align: center;
-}
+    }
 
     .main-form-btn {
     margin-top: 20px;
@@ -189,10 +186,31 @@ em {
     height: 50px;
     width: 15%;
     font-size: 16px;
+    }
+
+    /* GAME CSS */
+    .game-window {
+        width: 100%;
+        height: 1200px;
+        background-color: #94AAD6;
+    }
+
+    .sidebar {
+        background-color: #FF0000;
+        max-width: 100%;
+        height: 200px;
+    }
+    .sidebar h1 {
+        font-size: 25px;
+        text-align: center;
+        margin: 0;
+    }
+    
+    .sidebar p {
+        font-size: 16px;
+        padding-left: 5px;
+    }
 }
-
- }
-
 /* Medium screens */
 @media all and (min-width: 600px) {
 
@@ -200,7 +218,7 @@ em {
 
 /* Large screens */
 @media all and (max-width: 800px) {
-        .col-center {
+    .col-center {
         max-width: 100%;
         text-align: center;
     }
