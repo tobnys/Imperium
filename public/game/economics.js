@@ -2,18 +2,23 @@
     const MOCK_DATA = {
         "userCharacter": [
             {
-                "characterName": "testCharacterOne",
+                "characterName": "Toby",
                 "userID": 12345,
                 "score": 0,
                 "level": 1,
                 "money": 500,
-                "workers": 0
+                "civillians": 1,
+                "workers": 0,
+                "industryBuilding": 0,
+                "company": 0
             }
         ]
     };
 
     const MOCK_COST_DATA = {
         "workers": 100,
+        "industryBuilding": 500,
+        "company": 2000
     }
     // ON BUTTON CLICK, INITIATE WORKER
     $(".js-worker-btn").click(function(){
@@ -36,7 +41,6 @@
         MOCK_DATA.userCharacter[0].workers = MOCK_DATA.userCharacter[0].workers+1;
         MOCK_DATA.userCharacter[0].money = MOCK_DATA.userCharacter[0].money-newCost;
     }
-
     function workerMoneyGeneration(){
         MOCK_DATA.userCharacter[0].money = MOCK_DATA.userCharacter[0].money+MOCK_DATA.userCharacter[0].workers;
         console.log("Worker money generation")
@@ -44,10 +48,10 @@
 
     // UPDATE STATS
     function updateCurrentStats() {
-        $("#name").text(`Name: ${MOCK_DATA.userCharacter[0].characterName}`);
-        $("#score").text(`Score: ${MOCK_DATA.userCharacter[0].score}`);
-        $("#level").text(`Level: ${MOCK_DATA.userCharacter[0].level}`);
-        $("#money").text(`Money: $${MOCK_DATA.userCharacter[0].money}`);
+        $("#name").text(`${MOCK_DATA.userCharacter[0].characterName}`);
+        $("#score").text(`${MOCK_DATA.userCharacter[0].score}`);
+        $("#level").text(`${MOCK_DATA.userCharacter[0].level}`);
+        $("#money").text(`$${MOCK_DATA.userCharacter[0].money}`);
     };
     
     // TICK FUNCTION FOR STAT UPDATES

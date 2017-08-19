@@ -6,8 +6,9 @@
     <meta name="author" content="Tobias Nyström">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gridly/1.1.0/gridly.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <header role="banner">
@@ -27,9 +28,13 @@
         <div class="row row-center">
           <div class="col stat-list">
               <ul>
-                  <li id="name">Name:</li>
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <li id="name"></li>
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
                   <li id="score">Score: 1337</li>
+                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
                   <li id="level">Level: </li>
+                  <i class="fa fa-money" aria-hidden="true"></i>
                   <li id="money">Money:</li>
                 </ul>
           </div>
@@ -38,7 +43,7 @@
         <div class="row row-center">
           <div class="col">
             <div class="gameNav">
-                <a href="/game/character">Character</a>
+                <a href="/game">Overview</a>
                 <a href="/game/economics">Economics</a>
                 <a href="/game/crates">Crates</a>
                 <a style="border-right: 2px solid black;" href="#">Test</a>
@@ -48,6 +53,8 @@
 
         <div class="row">
           <div class="col game-content">
+            <h1>Overview</h1>
+            <hr>
             <div class="col buy-panel">
               <h2>Character view</h2>
             </div>

@@ -6,7 +6,7 @@
     <meta name="author" content="Tobias Nyström">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="main.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gridly/1.1.0/gridly.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -15,8 +15,6 @@
         <ul>
           <li><a href="/" class="js-home normal-btn">Home</a></li>
           <li><a href="/game" class="js-current-weather normal-btn">Game</a></li>
-          <li><a href="#" class="user-btn">Login</a></li>
-          <li><a href="#" class="user-btn">Register</a></li>
         </ul>
       </nav>
     </header>
@@ -25,13 +23,32 @@
       <div class="content1">
         <div class="row row-center">
           <div class="col-center-t">
-            <h1>Hello</h1>
-              <p>hegaefaisdjaosijdiasd</p>
+            <h1>Welcome!</h1>
           </div>      
+        </div>
+
+        <div class="row row-center">
+          <div class="col col-center-t">
+            <div class="login-form">
+              <form action="/user/login" method="POST">
+                  <label class="login-form-label" for="username">Username</label>
+                  <br>
+                  <input name="username" type="text" placeholder="Username" required="" id="username">
+                  <br>
+                  <label class="login-form-label" for="password">Password</label>
+                  <br>
+                  <input name="password" type="password" placeholder="Password" required="" id="password">
+                  <br>
+                  <button type="submit" class="form-btn">Login</button>
+                  <button type="submit" class="form-btn" formaction="/user/register">Register</button>
+              </form>
+            </div>    
+          </div>
         </div>
       </div>
     </main>
 
+    <footer class="footer"><p>Footer</p></footer>
 
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"

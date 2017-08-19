@@ -2,7 +2,7 @@
     const MOCK_DATA = {
         "userCharacter": [
             {
-                "characterName": "testCharacterOne",
+                "characterName": "Toby",
                 "userID": 12345,
                 "score": 0,
                 "level": 1,
@@ -21,10 +21,10 @@
 
     // UPDATE STATS
     function updateCurrentStats() {
-        $("#name").text(`Name: ${MOCK_DATA.userCharacter[0].characterName}`);
-        $("#score").text(`Score: ${MOCK_DATA.userCharacter[0].score}`);
-        $("#level").text(`Level: ${MOCK_DATA.userCharacter[0].level}`);
-        $("#money").text(`Money: $${MOCK_DATA.userCharacter[0].money}`);
+        $("#name").text(`${MOCK_DATA.userCharacter[0].characterName}`);
+        $("#score").text(`${MOCK_DATA.userCharacter[0].score}`);
+        $("#level").text(`${MOCK_DATA.userCharacter[0].level}`);
+        $("#money").text(`$${MOCK_DATA.userCharacter[0].money}`);
     };
     
     // TICK FUNCTION FOR STAT UPDATES

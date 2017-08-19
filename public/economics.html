@@ -6,8 +6,9 @@
     <meta name="author" content="Tobias Nyström">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gridly/1.1.0/gridly.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <header role="banner">
@@ -15,8 +16,6 @@
         <ul>
           <li><a href="/" class="js-home normal-btn">Home</a></li>
           <li><a href="/game" class="js-current-weather normal-btn">Game</a></li>
-          <li><a href="#" class="user-btn">Login</a></li>
-          <li><a href="#" class="user-btn">Register</a></li>
         </ul>
       </nav>
     </header>
@@ -27,48 +26,90 @@
         <div class="row row-center">
           <div class="col col-center-t stat-list">
               <ul>
-                  <li id="name">Name:</li>
-                  <li id="score">Score: 1337</li>
-                  <li id="level">Level: </li>
-                  <li id="money">Money:</li>
-                </ul>
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <li id="name"></li>
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  <li id="score"></li>
+                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                  <li id="level"></li>
+                  <i class="fa fa-money" aria-hidden="true"></i>
+                  <li id="money"></li>
+              </ul>
           </div>
         </div>
 
         <div class="row row-center">
           <div class="col">
             <div class="gameNav">
-                <a href="/game/character">Character</a>
+                <a href="/game">Overview</a>
                 <a href="/game/economics">Economics</a>
                 <a href="/game/crates">Crates</a>
-                <a style="border-right: 2px solid black;" href="#">Test</a>
             </div>
           </div>
         </div>
 
-
-
-
-        <div class="row">
-          <div class="col game-content">
-            <div class="col buy-panel">
-              <h2>Worker</h2>
-              <hr>
-              <p>Generates 1 money per second.</p>
-              <div class="col worker-cost">
-                <p id="worker-cost">Cost: $100</p>
-              </div>
-              <div class="col col-btn">
-                  <button class="js-worker-btn buy-btn">Buy!</button>
+        <div class="game-content">
+          <h1>Economics</h1>
+          <hr>
+          <div class="row row-center">
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Worker</h2>
+                <hr>
+                <p>Generates 1 dollar per second.</p>
+                <div class="worker-cost">
+                  <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="js-worker-btn buy-btn">Buy!</button>
+                </div>                
               </div>
             </div>
-          </div>       
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Worker</h2>
+                <hr>
+                <p>Generates 1 dollar per second.</p>
+                <div class="worker-cost">
+                  <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="js-worker-btn buy-btn">Buy!</button>
+                </div>                
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Worker</h2>
+                <hr>
+                <p>Generates 1 dollar per second.</p>
+                <div class="worker-cost">
+                  <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="js-worker-btn buy-btn">Buy!</button>
+                </div>                
+              </div>
+            </div> 
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Worker</h2>
+                <hr>
+                <p>Generates 1 dollar per second.</p>
+                <div class="worker-cost">
+                  <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="js-worker-btn buy-btn">Buy!</button>
+                </div>                
+              </div>
+            </div>                        
+          </div>
         </div>
 
       </div>
 
     </main>
-
 
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
