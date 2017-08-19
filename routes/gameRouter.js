@@ -1,17 +1,22 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
+const {jwtStrategy} = require("../strategy/authStrategies")
 
-const {publicDir} = require("../config")
+const {publicDir} = require("../config");
 
-router.get("/", (req, res) => { 
+passport.use(jwtStrategy);
+
+router.get("/", passport.authenticate('basic', {session: false}), (req, res) => { 
     res.sendFile(publicDir + "/game.html");
+    console.log(req.user);
 });
 
-router.get("/character", (req, res) => { 
+router.get("/character", passport.authenticate('jwt', {session: false}), (req, res) => { 
     res.sendFile(publicDir + "/character.html");
 });
 
-router.get("/economics", (req, res) => { 
+router.get("/economics", passport.authenticate('jwt', {session: false}), (req, res) => { 
     res.sendFile(publicDir + "/economics.html");
 });
 

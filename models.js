@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const mongoose = require('mongoose');
 
+
 mongoose.Promise = global.Promise;
 
 const UserSchema = mongoose.Schema({
@@ -13,12 +14,17 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  id: {
+    type: String,
+    required: true
+  },
   empireName: {type: String, default: ""},
 });
 
 UserSchema.methods.apiRepr = function(){
   return {
     username: this.username || '',
+    id: this.id,
     empireName: this.empireName || ''
   };
 }

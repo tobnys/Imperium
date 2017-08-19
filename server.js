@@ -8,8 +8,10 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
+const passport = require("passport");
 
 const {User} = require("./models");
+const {basicStrategy, jwtStrategy} = require("./strategy/authStrategies");
 
 const app = express();
 app.use(express.static(publicDir));
@@ -19,6 +21,9 @@ app.use("/user", userRouter);
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(passport.initialize());
+
+passport.use(basicStrategy);
 
 // SERVER LOGIC
 // Catch all other routes that do not send a response and give an error message to the client.
