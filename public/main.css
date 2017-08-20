@@ -49,33 +49,35 @@ footer p {
     margin-bottom: 100px;
 }
 
-.login-form form {
+.characters {
     height: 250px;
     width: 300px;
     background-color: #37474f;
     display: inline-block;
-    padding-top: 50px;
     border: 1px solid black;
     border-radius: 10px;
 }
 
-.login-form-label {
-    font-size: 16px;
+.characters h3 {
     color: white;
 }
 
-.login-form input {
-    font-size: 16px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: #CECECE;
+.characters p {
+    color: white;
+    font-size: 8px;
 }
 
-.form-btn {
-    width: 120px;
-    height: 50px;
+#stats-1 {
+    color: white;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.characters-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60px;
+    height: 25px;
     background-color: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -83,7 +85,7 @@ footer p {
     transition: background-color 0.4s, color 0.4s, border 0.4s;
 }
 
-.form-btn:hover {
+.characters-btn:hover {
     background-color: #37474f;
     color: white;
     border: 1px solid white;

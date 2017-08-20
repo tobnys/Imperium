@@ -1,42 +1,34 @@
 const bcrypt = require("bcryptjs");
 const mongoose = require('mongoose');
 
-
 mongoose.Promise = global.Promise;
 
-const UserSchema = mongoose.Schema({
-  username: {
+const EmpireSchema = mongoose.Schema({
+  name: {
     type: String,
     required: true,
-    unique: true
   },
-  password: {
-    type: String,
-    required: true
-  },
-  id: {
-    type: String,
-    required: true
-  },
-  empireName: {type: String, default: ""},
+  id: String,
+  score: Number,
+  level: Number,
+  money: Number,
+  workers: Number,
+  industryBuildings: Number,
+  companies: Number,
 });
 
-UserSchema.methods.apiRepr = function(){
+EmpireSchema.methods.apiRepr = function(){
   return {
-    username: this.username || '',
-    id: this.id,
-    empireName: this.empireName || ''
+    name: this.name,
+    score: this.score,
+    level: this.level,
+    money: this.money,
+    workers: this.workers,
+    industryBuildings: this.industryBuildings,
+    companies: this.companies
   };
 }
 
-UserSchema.methods.validatePassword = function(password){
-  return bcrypt.compare(password, this.password);
-};
+const Empire = mongoose.model('Empire', EmpireSchema);
 
-UserSchema.statics.hashPassword = function(password){
-  return bcrypt.hash(password, 10);
-};
-
-const User = mongoose.model('User', UserSchema);
-
-module.exports = {User};
+module.exports = {Empire};

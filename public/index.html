@@ -5,54 +5,72 @@
     <meta name="description" content="Web based RPG game">
     <meta name="author" content="Tobias Nyström">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gridly/1.1.0/gridly.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <header role="banner">
-      <nav class="navbar">
-        <ul>
-          <li><a href="/" class="js-home normal-btn">Home</a></li>
-          <li><a href="/game" class="js-current-weather normal-btn">Game</a></li>
-        </ul>
-      </nav>
-    </header>
 
     <main role="main">
-      <div class="content1">
-        <div class="row row-center">
-          <div class="col-center-t">
-            <h1>Welcome!</h1>
-          </div>      
-        </div>
+      <div class="game-window">
 
         <div class="row row-center">
-          <div class="col col-center-t">
-            <div class="login-form">
-              <form action="/user/login" method="POST">
-                  <label class="login-form-label" for="username">Username</label>
-                  <br>
-                  <input name="username" type="text" placeholder="Username" required="" id="username">
-                  <br>
-                  <label class="login-form-label" for="password">Password</label>
-                  <br>
-                  <input name="password" type="password" placeholder="Password" required="" id="password">
-                  <br>
-                  <button type="submit" class="form-btn">Login</button>
-                  <button type="submit" class="form-btn" formaction="/user/register">Register</button>
-              </form>
-            </div>    
+          <div class="col stat-list">
+              <ul>
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <li id="name"></li>
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                <li id="score"></li>
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                <li id="level"></li>
+                <i class="fa fa-money" aria-hidden="true"></i>
+                <li id="money"></li>
+              </ul>
           </div>
         </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <div class="gameNav">
+                <a href="/">Overview</a>
+                <a href="/game/economics">Economics</a>
+                <a href="/game/crates">Crates</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col game-content">
+          <h1>Overview</h1>
+          <hr>
+          <div class="row row-center">
+            <div class="col col-center">
+              <div class="overview">
+                <div class="characters">
+                  <h3 id="e-name-1"></h3><p id="e-stats-1">Level: 123 | Score: 123 | Money: $123123</p>
+                  <button class="characters-btn js-e-btn-1">Pick</button>
+                  <hr>
+                  <h3 id="e-name-2"></h3><p id="e-stats-2">Level: 123 | Score: 123 | Money: $123123</p>
+                  <button class="characters-btn js-e-btn-2">Pick</button>
+                  <hr>
+                  <h3 id="e-name-3"></h3><p id="e-stats-3">Level: 123 | Score: 123 | Money: $123123</p>
+                  <button class="characters-btn js-e-btn-3">Pick</button>
+                  <hr>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>       
+
       </div>
+
     </main>
 
-    <footer class="footer"><p>Footer</p></footer>
 
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
+    <script src="/game/index.js"></script>
   </body>
 </html>

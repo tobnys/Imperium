@@ -3,33 +3,74 @@ const express = require("express");
 const {PORT, TEST_DATABASE_URL, publicDir} = require("./config")
 const homeRouter = require("./routes/homeRouter");
 const gameRouter = require("./routes/gameRouter");
-const userRouter = require("./routes/userRouter");
+const apiRouter = require("./routes/apiRouter");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
-const passport = require("passport");
+const uuidv4 = require("uuid");
 
-const {User} = require("./models");
-const {basicStrategy, jwtStrategy} = require("./strategy/authStrategies");
+const {Empire} = require("./models");
 
 const app = express();
 app.use(express.static(publicDir));
 app.use("/", homeRouter);
 app.use("/game", gameRouter);
-app.use("/user", userRouter);
+app.use("/api", apiRouter);
 app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(passport.initialize());
 
-passport.use(basicStrategy);
 
 // SERVER LOGIC
+function seedDatabase() {
+    console.log("seeding database");
+    Empire.create({
+        name: "Sample Empire 1",
+        id: 1,
+        score: "0",
+        level: "0",
+        money: "0",
+        workers: "0",
+        industryBuildings: "0",
+        companies: "0",
+    });
+    
+    Empire.create({
+        name: "Sample Empire 2",
+        id: 2,
+        score: "0",
+        level: "0",
+        money: "0",
+        workers: "0",
+        industryBuildings: "0",
+        companies: "0",
+    });
+    
+    Empire.create({
+        name: "Sample Empire 3",
+        id: 3,
+        score: "0",
+        level: "0",
+        money: "0",
+        workers: "0",
+        industryBuildings: "0",
+        companies: "0",
+    });
+};
+
+// SEED DATABASE WITH SAMPLE CHARACTERS
+Empire.findOne({id: 1}).exec(function(err, res) {
+    if(res === null) {
+        seedDatabase();
+    }
+});
+
 // Catch all other routes that do not send a response and give an error message to the client.
 app.all("*", (req, res) => {
     res.sendStatus(500);
 });
+
 
 let server;
 function runServer(databaseURL=TEST_DATABASE_URL, port=PORT){
