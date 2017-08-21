@@ -10,7 +10,7 @@ html {
 }
 
 main {
-    padding-top: 60px;
+    padding-top: 150px;
 }
 
 footer {
@@ -24,6 +24,10 @@ footer p {
     font-size: 18px;
     color: white;
     padding-top: 20px;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 .row-center {
@@ -49,8 +53,8 @@ footer p {
     margin-bottom: 100px;
 }
 
-.characters {
-    height: 250px;
+.empire {
+    height: 300px;
     width: 300px;
     background-color: #37474f;
     display: inline-block;
@@ -58,22 +62,23 @@ footer p {
     border-radius: 10px;
 }
 
-.characters h3 {
+.empire h3 {
     color: white;
+    margin-top: 2px;
 }
 
-.characters p {
+.empire p {
     color: white;
     font-size: 8px;
 }
 
-#stats-1 {
+.e-stats {
     color: white;
     font-size: 14px;
     margin-top: 10px;
 }
 
-.characters-btn {
+.empire-btn {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 60px;
@@ -85,7 +90,7 @@ footer p {
     transition: background-color 0.4s, color 0.4s, border 0.4s;
 }
 
-.characters-btn:hover {
+.empire-btn:hover {
     background-color: #37474f;
     color: white;
     border: 1px solid white;
@@ -140,32 +145,33 @@ footer p {
     text-align: center;
     height: 50px;
     text-decoration: none;
-    transition: color 0.4s, background-color 0.4s;
+    transition: background 0.4s, background-color 0.4s;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .gameNav a:hover {
-    color: black;
-    background: #ffffff; /* Old browsers */
+    background: #3F5864; /* Old browsers */
     background: -moz-linear-gradient(top, #ffffff 6%, #ffffff 99%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, #ffffff 6%,#ffffff 99%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, #ffffff 6%,#ffffff 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: linear-gradient(to bottom, #7B9FB2 6%,#3F5864 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-    transition: color 0.4s, background-color 0.4s;
 }
 
 .stat-list {
     text-align: center;
+    margin-top: 0;
 }
 
 .stat-list li {
     font-size: 16px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     display: inline-block;
     font-weight: bold;
     color: white;
 }
+
 .fa {
     color: white;
 }
@@ -311,12 +317,26 @@ footer p {
     transition: background-color 0.4s;
 }
 
+.pre-overview {
+    background: #37474f;
+    text-decoration: none;
+    color: #444;
+    margin: 20px;
+    text-align: center;
+    height: 350px;
+}
+
+.pre-overview p {
+    color: white;
+}
+
 .overview {
     background: #37474f;
     text-decoration: none;
     color: #444;
     margin: 20px;
     text-align: center;
+    height: 350px;
 }
 
 .overview p {
