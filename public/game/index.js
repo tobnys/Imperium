@@ -1,5 +1,6 @@
 (function () {
     let chosenEmpire;
+    let currentView = "overview";
 
     const entities = {
         "workers": {
@@ -15,6 +16,8 @@
             revenue: 100
         }
     }
+    // DISABLE NAVBAR BUTTONS ON INITIAL LOAD
+    $(".gameNav a").css("pointer-events", "none")
 
     // TOGGLE STAT LIST ON INITIAL LOAD
     $(".stat-list").animate({
@@ -27,6 +30,9 @@
     $(".overview").fadeToggle(0, function(){
         console.log("Overview faded out");
     });
+
+    // TOGGLE ECONOMICS VIEW ON INITIAL LOAD
+    $(".v-economics").fadeToggle(0);
 
     $.ajax({
         type: "GET",
@@ -62,7 +68,7 @@
             console.log(`Empire ID ${id} selected.`)
             chosenEmpire = id;
             appendHTML(e);
-            toggleNavButtons(e);
+            $(".gameNav a").css("pointer-events", "auto");
         });
     };
 
@@ -91,14 +97,76 @@
         });
     };
 
-    // TURN NAVIGATION BUTTONS ON ONCE A CHARACTER IS INITIATED AND HTML IS APPENDED
-    function toggleNavButtons(e){
-        $("#economics").click(function(){
-            loadEconomicsView();
-        });
-        $("#crates").click(function(){
-            loadCratesView();             
-        });
-    }
+    $(`#o-economics`).click(function(){
+        if(currentView === "economics"){
+            console.log("Already on same view");
+        }
+        else {
+            $(`.v-${currentView}`).fadeToggle(500, function(){
+                if(currentView === "overview"){
+                    $(".v-economics").fadeToggle(500);
+                    currentView = "economics";
+                }
+                if(currentView === "crates") {
+                    $(".v-crates").fadeToggle(500);
+                    $(".v-overview").fadeToggle(500);
+                }
+            });
+        }
+    });
+    
+    $(`#e-economics`).click(function(){
+        if(currentView === "economics"){
+            console.log("Already on same view");
+        }
+        else {
+            $(`.v-${currentView}`).fadeToggle(500, function(){
+                if(currentView === "overview"){
+                    $(".v-economics").fadeToggle(500);
+                    currentView = "economics";
+                }
+                if(currentView === "crates") {
+                    $(".v-crates").fadeToggle(500);
+                    $(".v-overview").fadeToggle(500);
+                }
+            });
+        }
+    });
+
+    $(`#o-overview`).click(function(){
+        if(currentView === "overview"){
+            console.log("Already on same view");
+        }
+        else {
+            $(`.v-${currentView}`).fadeToggle(500, function(){
+                if(currentView === "economics"){
+                    $(".v-overview").fadeToggle(500);
+                    currentView = "overview";
+                }
+                if(currentView === "crates") {
+                    $(".v-crates").fadeToggle(500);
+                    $(".v-economics").fadeToggle(500);
+                }
+            });
+        }                       
+    });
+
+    $(`#e-overview`).click(function(){
+        if(currentView === "overview"){
+            console.log("Already on same view");
+        }
+        else {
+            $(`.v-${currentView}`).fadeToggle(500, function(){
+                if(currentView === "economics"){
+                    $(".v-overview").fadeToggle(500);
+                    currentView = "overview";
+                }
+                if(currentView === "crates") {
+                    $(".v-crates").fadeToggle(500);
+                    $(".v-economics").fadeToggle(500);
+                }
+            });
+        }                       
+    });
 
 })();

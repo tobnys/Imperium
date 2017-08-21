@@ -12,7 +12,7 @@
   </head>
   <body>
 
-    <main role="main">
+    <main role="main" class="v-overview">
       <div class="game-window">
 
         <div class="row row-center">
@@ -33,9 +33,9 @@
         <div class="row row-center">
           <div class="col">
             <div class="gameNav">
-                <a id="overview">Overview</a>
-                <a id="economics">Economics</a>
-                <a id="crates">Crates</a>
+                <a id="o-overview">Overview</a>
+                <a id="o-economics">Economics</a>
+                <a id="o-crates">Crates</a>
             </div>
           </div>
         </div>
@@ -64,6 +64,98 @@
             </div>
           </div>
         </div>       
+
+      </div>
+
+    </main>
+
+
+    <main role="main" class="v-economics">
+      <div class="game-window">
+
+        <div class="row row-center">
+          <div class="col col-center-t stat-list">
+              <ul>
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <li id="name"></li>
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  <li id="score"></li>
+                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                  <li id="level"></li>
+                  <i class="fa fa-money" aria-hidden="true"></i>
+                  <li id="money"></li>
+              </ul>
+          </div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <div class="gameNav">
+                <a id="e-overview">Overview</a>
+                <a id="e-economics">Economics</a>
+                <a id="e-crates">Crates</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-content">
+          <h1>Economics</h1>
+          <hr>
+          <div class="row row-center">
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Worker</h2>
+                <hr>
+                <p>Generates 1 dollar per second.</p>
+                <div class="worker-cost">
+                  <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="js-worker-btn buy-btn">Buy!</button>
+                </div>                
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Worker</h2>
+                <hr>
+                <p>Generates 1 dollar per second.</p>
+                <div class="worker-cost">
+                  <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="js-worker-btn buy-btn">Buy!</button>
+                </div>                
+              </div>
+            </div>
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Worker</h2>
+                <hr>
+                <p>Generates 1 dollar per second.</p>
+                <div class="worker-cost">
+                  <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="js-worker-btn buy-btn">Buy!</button>
+                </div>                
+              </div>
+            </div> 
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Worker</h2>
+                <hr>
+                <p>Generates 1 dollar per second.</p>
+                <div class="worker-cost">
+                  <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="js-worker-btn buy-btn">Buy!</button>
+                </div>                
+              </div>
+            </div>                        
+          </div>
+        </div>
 
       </div>
 
