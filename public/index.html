@@ -114,16 +114,33 @@
           <div class="row row-center">
             <div class="col col-center">
               <div class="buy-panel">
-                <h2>Civilian</h2>
+                <h2>Civilians</h2>
                 <hr>
                 <p id="buypanel-description">Generates $1 per second</p>
                 <div class="col col-btn">
                     <button class="buy-btn-disabled">Buy</button>
                 </div>
                 <hr>
-                <h2 id="buypanel-amount">0</h2>               
+                <h2 class="buypanel-amount" id="js-civilian-amount">0</h2>               
               </div>
             </div>
+
+            <div class="col col-center">
+                <div class="buy-panel">
+                  <h2>Workers</h2>
+                  <hr>
+                  <p id="buypanel-description-2">Generates $5 per second</p>
+                  <div class="buypanel-cost">
+                      <p id="worker-cost">Cost: $100</p>
+                  </div>
+                  <div class="col col-btn">
+                      <button class="buy-btn js-buy-worker">Buy</button>
+                  </div>
+                  <hr>
+                  <h2 class="buypanel-amount" id="js-worker-amount">0</h2>               
+                </div>
+              </div>
+
         </div>
       </div>
 

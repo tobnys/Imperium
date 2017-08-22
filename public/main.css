@@ -113,9 +113,9 @@ footer p {
     margin-bottom: 75px;
 }
 
-#buypanel-amount {
-    font-size: 14px;
-    margin-top: 5px;
+#buypanel-description-2 {
+    margin-top: 10px;
+    margin-bottom: 50px;
 }
 
 .buypanel-cost {
@@ -126,6 +126,8 @@ footer p {
 .buypanel-amount {
     text-align: center;
     width: 100%;
+    font-size: 14px;
+    margin-top: 5px;
 }
 
 .game-content {

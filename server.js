@@ -24,38 +24,41 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // SERVER LOGIC
 function seedDatabase() {
-    console.log("seeding database");
+    console.log("Seeding database");
     Empire.create({
-        name: "Sample Empire 1",
+        name: "British Empire",
         id: 1,
-        score: "0",
-        level: "0",
-        money: "0",
-        workers: "0",
-        industryBuildings: "0",
-        companies: "0",
+        score: 0,
+        level: 1,
+        money: 500,
+        civilians: 0,
+        workers: 0,
+        industryBuildings: 0,
+        companies: 0,
     });
     
     Empire.create({
-        name: "Sample Empire 2",
+        name: "American Empire",
         id: 2,
-        score: "0",
-        level: "0",
-        money: "0",
-        workers: "0",
-        industryBuildings: "0",
-        companies: "0",
+        score: 0,
+        level: 1,
+        money: 500,
+        civilians: 0,
+        workers: 0,
+        industryBuildings: 0,
+        companies: 0,
     });
     
     Empire.create({
-        name: "Sample Empire 3",
+        name: "French Empire",
         id: 3,
-        score: "0",
-        level: "0",
-        money: "0",
-        workers: "0",
-        industryBuildings: "0",
-        companies: "0",
+        score: 0,
+        level: 1,
+        money: 500,
+        civilians: 0,
+        workers: 0,
+        industryBuildings: 0,
+        companies: 0,
     });
 };
 

@@ -31,13 +31,14 @@ router.put("/empire/:id", jsonParser, (req, res) => {
     const updated = {};
     const updateableFields = ["score", "level", "money", "workers", "industryBuildings", "companies"];
     updateableFields.forEach(field => {
-        updated[field];
+        updated[field] = req.body[field];
     });
 
 
-    Empire.findOne({id: req.params.id}).exec().then(function(empire){
-
-    })
+    Empire.findOneAndUpdate({id: req.params.id}, {$set: updated}, {new: true})
+    .exec()
+    .then(updatedEmpire => res.status(201).json(updatedEmpire.apiRepr()))
+    .catch(err => res.sendStatus(500));
 });
 
 
