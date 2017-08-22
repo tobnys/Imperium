@@ -26,6 +26,12 @@ footer p {
     padding-top: 20px;
 }
 
+.main-header {
+    color: white;
+    font-size: 60px;
+    margin-bottom: 40px;
+}
+
 .hidden {
     opacity: 0;
 }
@@ -75,7 +81,7 @@ footer p {
 .e-stats {
     color: white;
     font-size: 14px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .empire-btn {
@@ -100,20 +106,26 @@ footer p {
 
 /* GAME CSS */
 
-.game-window h1 {
-    margin-top: 100px;
+
+
+#buypanel-description {
+    margin-top: 10px;
+    margin-bottom: 75px;
 }
 
-#worker-cost {
-    border: 1px solid black;
-    text-align: center;
-    height: 20px;
+#buypanel-amount {
+    font-size: 14px;
+    margin-top: 5px;
 }
 
-.worker-cost {
+.buypanel-cost {
     text-align: center;
     width: 100%;
-    margin-top: 80px;
+}
+
+.buypanel-amount {
+    text-align: center;
+    width: 100%;
 }
 
 .game-content {
@@ -248,11 +260,25 @@ footer p {
     width: 70px;
     border-radius: 10px;
     transition: border 0.2s;
+    margin-bottom: 10px;
 }
 
 .buy-btn:hover {
     transition: border 0.2s;
     border: 1px solid white;
+}
+
+.buy-btn-disabled {
+    color: white;
+    font-size: 18px;
+    border: 1px solid black;
+    background-color: #37474f;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: not-allowed;
+    opacity: 0.5;
 }
 
 .col-btn {

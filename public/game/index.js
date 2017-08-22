@@ -1,5 +1,5 @@
 (function () {
-    let chosenEmpire;
+    let empire;
     let currentView = "overview";
 
     const entities = {
@@ -34,6 +34,32 @@
     // TOGGLE ECONOMICS VIEW ON INITIAL LOAD
     $(".v-economics").fadeToggle(0);
 
+    // UPDATE STATS
+    function updateCurrentStats() {
+        $("#name").text(`${empire.characterName}`);
+        $("#score").text(`${empire.score}`);
+        $("#level").text(`${empire.level}`);
+        $("#money").text(`$${empire.money}`);
+        console.log("Update")
+    };
+    
+    // TICK FUNCTION FOR STAT UPDATES
+    function statUpdateTick() {
+        updateCurrentStats();
+    }
+    
+    function saveStatsToServer(e) {
+        $.ajax({
+            type: "PUT",
+            dataType: "json",
+            data: e,
+            contentType: "application/json",
+            url: `http://localhost:8080/api/empire/${e.id}`  
+        }).then(function(e){
+            console.log("Stats saved to server.");
+        });
+    }
+
     $.ajax({
         type: "GET",
         dataType: "json",
@@ -66,8 +92,10 @@
             url: `http://localhost:8080/api/empire/${id}`
         }).then(function(e){
             console.log(`Empire ID ${id} selected.`)
-            chosenEmpire = id;
+            empire = e;
             appendHTML(e);
+            setInterval(statUpdateTick, 100);
+            setInterval(saveStatsToServer, 10000);
             $(".gameNav a").css("pointer-events", "auto");
         });
     };
@@ -106,6 +134,12 @@
                 if(currentView === "overview"){
                     $(".v-economics").fadeToggle(500);
                     currentView = "economics";
+
+                    // UPDATE THE TOP STATS FOR NEW VIEW
+                    $("#e-name").text(empire.name);
+                    $("#e-score").text(empire.score);
+                    $("#e-level").text(empire.level);
+                    $("#e-money").text(`$${empire.money}`);
                 }
                 if(currentView === "crates") {
                     $(".v-crates").fadeToggle(500);
@@ -124,6 +158,10 @@
                 if(currentView === "overview"){
                     $(".v-economics").fadeToggle(500);
                     currentView = "economics";
+                    $("#e-name").text(empire.name);
+                    $("#e-score").text(empire.score);
+                    $("#e-level").text(empire.level);
+                    $("#e-money").text(`$${empire.money}`);
                 }
                 if(currentView === "crates") {
                     $(".v-crates").fadeToggle(500);
@@ -168,5 +206,41 @@
             });
         }                       
     });
+
+    //////////////////////////////////////////////////////////////
+    ////////////// ECONOMICS SECTION ////////////////////////////
+    //////////////////////////////////////////////////////////////
+
+    const MOCK_COST_DATA = {
+        "workers": 100,
+        "industryBuilding": 500,
+        "company": 2000
+    }
+
+    // ON BUTTON CLICK, INITIATE WORKER
+    $(".js-worker-btn").click(function(){
+        var newCost = MOCK_COST_DATA.workers*MOCK_DATA.userCharacter[0].workers;
+        if(MOCK_DATA.userCharacter[0].money > newCost) {
+            initiateWorker();
+        }
+        // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
+        else console.log("Not enough money..");
+    });
+
+    // INITIATE A WORKER 
+    function initiateWorker() {
+        var newCost = MOCK_COST_DATA.workers*MOCK_DATA.userCharacter[0].workers;
+        if(MOCK_DATA.userCharacter[0].workers === 0) {
+            $("#worker-cost").text(`Cost: $${100}`);
+            MOCK_DATA.userCharacter[0].money = MOCK_DATA.userCharacter[0].money-100;
+        }
+        else $("#worker-cost").text(`Cost: $${newCost}`);
+        MOCK_DATA.userCharacter[0].workers = MOCK_DATA.userCharacter[0].workers+1;
+        MOCK_DATA.userCharacter[0].money = MOCK_DATA.userCharacter[0].money-newCost;
+    }
+    function workerMoneyGeneration(){
+        MOCK_DATA.userCharacter[0].money = MOCK_DATA.userCharacter[0].money+MOCK_DATA.userCharacter[0].workers;
+        console.log("Worker money generation")
+    }
 
 })();
