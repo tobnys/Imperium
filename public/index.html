@@ -23,13 +23,13 @@
           <div class="col stat-list">
               <ul>
                 <i class="fa fa-user" aria-hidden="true"></i>
-                <li id="name"></li>
+                <li id="o-name"></li>
                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                <li id="score"></li>
+                <li id="o-score"></li>
                 <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                <li id="level"></li>
+                <li id="o-level"></li>
                 <i class="fa fa-money" aria-hidden="true"></i>
-                <li id="money"></li>
+                <li id="o-money"></li>
               </ul>
           </div>
         </div>
@@ -126,20 +126,52 @@
             </div>
 
             <div class="col col-center">
-                <div class="buy-panel">
-                  <h2>Workers</h2>
-                  <hr>
-                  <p id="buypanel-description-2">Generates $5 per second</p>
-                  <div class="buypanel-cost">
-                      <p id="worker-cost">Cost: $100</p>
-                  </div>
-                  <div class="col col-btn">
-                      <button class="buy-btn js-buy-worker">Buy</button>
-                  </div>
-                  <hr>
-                  <h2 class="buypanel-amount" id="js-worker-amount">0</h2>               
+              <div class="buy-panel">
+                <h2>Workers</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $5 per second</p>
+                <div class="buypanel-cost">
+                    <p id="worker-cost">Cost: $100</p>
                 </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-worker">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-worker-amount">0</h2>               
               </div>
+            </div>
+
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Industries</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $20 per second</p>
+                <div class="buypanel-cost">
+                    <p id="industry-cost"></p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-industry">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-industry-amount">0</h2>               
+              </div>
+            </div>
+
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Companies</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $50 per second</p>
+                <div class="buypanel-cost">
+                    <p id="company-cost"></p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-company">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-company-amount">0</h2>               
+              </div>
+            </div>
 
         </div>
       </div>

@@ -67,6 +67,11 @@
         $("#o-score").text(`${empire.score}`);
         $("#o-level").text(`${empire.level}`);
         $("#o-money").text(`$${empire.money}`);
+        // CRATE VIEW
+        $("#c-name").text(`${empire.name}`);
+        $("#c-score").text(`${empire.score}`);
+        $("#c-level").text(`${empire.level}`);
+        $("#c-money").text(`$${empire.money}`);
     };
     
     // TICK FUNCTION FOR STAT UPDATES
@@ -113,7 +118,11 @@
             // SET INTERVALS FOR FUNCTIONS REGARDING STATS TO RUN
             setInterval(statUpdateTick, 100);
             setInterval(saveStatsToServer, 10000);
+
+            // MONEY GENERATION
             setInterval(workerMoneyGeneration, 1000);
+            setInterval(industryMoneyGeneration, 1000);
+            setInterval(companyMoneyGeneration, 1000);
 
             // ENABLE CLICKING OF NAVIGATION TABS
             $(".gameNav a").css("pointer-events", "auto");
@@ -156,11 +165,43 @@
                     $(".v-economics").fadeToggle(500);
                     currentView = "economics";
 
-                    // UPDATE THE TOP STATS FOR NEW VIEW
-                    //$("#e-name").text(empire.name);
-                    //$("#e-score").text(empire.score);
-                    //$("#e-level").text(empire.level);
-                    //$("#e-money").text(`$${empire.money}`);
+                    // UPDATE STATS ON ECONOMICS PAGE FOR COSTS AND AMOUNTS
+                    // WORKER
+                    let workerValue;
+                    if(empire.workers === 0) {
+                        workerValue = COST_DATA.workers;
+                    }
+                    else {
+                        workerValue = COST_DATA.workers*empire.workers;
+                    }
+
+                    $("#worker-cost").text(`Cost: $${workerValue}`);
+                    $("#js-worker-amount").text(empire.workers);
+
+                    // INDUSTRY
+                    let industryValue;
+                    if(empire.industryBuildings === 0) {
+                        industryValue = COST_DATA.industryBuildings;
+                    }
+                    else {
+                        industryValue = COST_DATA.industryBuildings*empire.industryBuildings;
+                    }
+
+
+                    $("#industry-cost").text(`Cost: $${industryValue}`);
+                    $("#js-industry-amount").text(empire.industryBuildings);
+
+                    // COMPANY
+                    let companyValue;
+                    if(empire.companies === 0) {
+                        companyValue = COST_DATA.companies;
+                    }
+                    else {
+                        companyValue = COST_DATA.companies*empire.companies;
+                    }
+
+                    $("#company-cost").text(`Cost: $${companyValue}`);
+                    $("#js-company-amount").text(empire.companies);
                 }
                 if(currentView === "crates") {
                     $(".v-crates").fadeToggle(500);
@@ -183,6 +224,43 @@
                     $("#e-score").text(empire.score);
                     $("#e-level").text(empire.level);
                     $("#e-money").text(`$${empire.money}`);
+
+                    // UPDATE STATS ON ECONOMICS PAGE FOR COSTS AND AMOUNTS
+                    // WORKER
+                    let workerValue;
+                    if(empire.workers === 0) {
+                        workerValue = COST_DATA.workers;
+                    }
+                    else {
+                        workerValue = COST_DATA.workers*empire.workers;
+                    }
+
+                    $("#worker-cost").text(`Cost: $${workerValue}`);
+                    $("#js-worker-amount").text(empire.workers);
+
+                    // INDUSTRY
+                    let industryValue;
+                    if(empire.industryBuildings === 0) {
+                        industryValue = COST_DATA.industryBuildings;
+                    }
+                    else {
+                        industryValue = COST_DATA.industryBuildings*empire.industryBuildings;
+                    }
+
+                    $("#industry-cost").text(`Cost: $${industryValue}`);
+                    $("#js-industry-amount").text(empire.industryBuildings);
+
+                    // COMPANY
+                    let companyValue;
+                    if(empire.companies === 0) {
+                        companyValue = COST_DATA.companies;
+                    }
+                    else {
+                        companyValue = COST_DATA.companies*empire.companies;
+                    }
+
+                    $("#company-cost").text(`Cost: $${companyValue}`);
+                    $("#js-company-amount").text(empire.companies);
                 }
                 if(currentView === "crates") {
                     $(".v-crates").fadeToggle(500);
@@ -234,11 +312,17 @@
 
     const COST_DATA = {
         "workers": 100,
-        "industryBuilding": 500,
-        "company": 2000
+        "industryBuildings": 500,
+        "companies": 2000
     }
 
-    // ON BUTTON CLICK, INITIATE WORKER
+    const REVENUE_DATA = {
+        "workers": 5,
+        "industryBuildings": 20,
+        "companies": 50
+    }
+
+    // INITIATE WORKER ON BUTTON CLICK
     $(".js-buy-worker").click(function(){
         var newCost = COST_DATA.workers*empire.workers;
         if(empire.money >= newCost) {
@@ -249,21 +333,86 @@
         else console.log("Not enough money..");
     });
 
+    // INITIATE WORKER ON BUTTON CLICK
+    $(".js-buy-industry").click(function(){
+        var newCost = COST_DATA.industryBuildings*empire.industryBuildings;
+        if(empire.money >= newCost) {
+            initiateIndustry();
+            $("#js-industry-amount").text(empire.industryBuildings);
+        }
+        // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
+        else console.log("Not enough money..");
+    });
+
+    // INITIATE WORKER ON BUTTON CLICK
+    $(".js-buy-company").click(function(){
+        var newCost = COST_DATA.companies*empire.companies;
+        if(empire.money >= newCost) {
+            initiateCompany();
+            $("#js-company-amount").text(empire.companies);
+        }
+        // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
+        else console.log("Not enough money..");
+    });
+
     // INITIATE A WORKER 
     function initiateWorker() {
-        var newCost = COST_DATA.workers*empire.workers;
+        var newCost;
         if(empire.workers === 0) {
-            $("#worker-cost").text(`Cost: $${100}`);
+            $("#worker-cost").text(`Cost: $${COST_DATA.workers}`);
             empire.money = empire.money-100;
             empire.workers = empire.workers+1;
+            newCost = COST_DATA.workers*empire.workers;
         }
         else {
-            $("#worker-cost").text(`Cost: $${newCost}`);
             empire.workers = empire.workers+1;
+            newCost = COST_DATA.workers*empire.workers;
             empire.money = empire.money-newCost;
+            $("#worker-cost").text(`Cost: $${newCost}`);
         } 
     }
     function workerMoneyGeneration(){
-        empire.money = empire.money+empire.workers*5;
+        empire.money = empire.money+empire.workers*REVENUE_DATA.workers;
     }
+
+    // INITIATE AN INDUSTRY
+    function initiateIndustry() {
+        var newCost;
+        if(empire.industryBuildings === 0) {
+            $("#industry-cost").text(`Cost: $${COST_DATA.industryBuildings}`);
+            empire.money = empire.money-100;
+            empire.industryBuildings = empire.industryBuildings+1;
+            newCost = COST_DATA.industryBuildings*empire.industryBuildings;
+        }
+        else {
+            empire.industryBuildings = empire.industryBuildings+1;
+            newCost = COST_DATA.industryBuildings*empire.industryBuildings;
+            empire.money = empire.money-newCost;
+            $("#industry-cost").text(`Cost: $${newCost}`);
+        } 
+    }
+    function industryMoneyGeneration(){
+        empire.money = empire.money+empire.industryBuildings*REVENUE_DATA.industryBuildings;
+    }
+
+    // INITIATE A COMPANY
+    function initiateCompany() {
+        var newCost;
+        if(empire.companies === 0) {
+            $("#company-cost").text(`Cost: $${COST_DATA.companies}`);
+            empire.money = empire.money-100;
+            empire.companies = empire.companies+1;
+            newCost = COST_DATA.workers*empire.companies;
+        }
+        else {
+            empire.companies = empire.companies+1;
+            newCost = COST_DATA.companies*empire.companies;
+            empire.money = empire.money-newCost;
+            $("#company-cost").text(`Cost: $${newCost}`);
+        } 
+    }
+    function companyMoneyGeneration(){
+        empire.money = empire.money+empire.companies*REVENUE_DATA.companies;
+    }
+
 })();

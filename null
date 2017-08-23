@@ -1,0 +1,14 @@
+    if(!req.params.id){
+        res.sendStatus(400);
+    }
+
+    const updated = {};
+    const updateableFields = ["score", "level", "money", "workers", "industryBuildings", "companies"];
+    updateableFields.forEach(field => {
+        updated[field];
+    });
+
+
+    Empire.findOne({id: req.params.id}).exec().then(function(empire){
+
+    })
