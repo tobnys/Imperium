@@ -2,35 +2,180 @@
 <html lang="en">
   <head>
     <title>Imperium</title>
-    <meta name="description" content="API Capstone project">
+    <meta name="description" content="Web based RPG game">
     <meta name="author" content="Tobias Nyström">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/gridly/1.1.0/gridly.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <header role="banner">
-      <nav class="navbar">
-        <ul>
-          <li><a href="#" class="js-home">Home</a></li>
-          <li><a href="#" class="js-current-weather">Game</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    <main role="main">
-      <div class="row row-center">
-        <div class="col">
-            <h1>Hello</h1>
+    <main role="main" class="v-overview">
+      <div class="game-window">
+        <div class="row row-center">
+          <div class="col col-center-t">
+            <h1 class="main-header">Imperium</h1>
+          </div>
         </div>
-        <div class="col">
-            <h1>Hello</h1>
+        <div class="row row-center">
+          <div class="col stat-list">
+              <ul>
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <li id="o-name"></li>
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                <li id="o-score"></li>
+                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                <li id="o-level"></li>
+                <i class="fa fa-money" aria-hidden="true"></i>
+                <li id="o-money"></li>
+              </ul>
+          </div>
         </div>
-        <div class="col">
-            <h1>Hello</h1>
-        </div>        
+
+        <div class="row row-center">
+          <div class="col">
+            <div class="gameNav">
+                <a id="o-overview">Overview</a>
+                <a id="o-economics">Economics</a>
+                <a id="o-crates">Crates</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col game-content">
+          <hr>
+          <h1>Overview</h1>
+          <hr>
+          <div class="row row-center">
+            <div class="col col-center">
+              <div class="pre-overview">
+                <div class="empire">
+                  <h3 id="e-name-1"></h3><p id="e-stats-1" class="e-stats"></p>
+                  <button class="empire-btn js-e-btn-1">Pick</button>
+                  <hr>
+                  <h3 id="e-name-2"></h3><p id="e-stats-2" class="e-stats"></p>
+                  <button class="empire-btn js-e-btn-2">Pick</button>
+                  <hr>
+                  <h3 id="e-name-3"></h3><p id="e-stats-3" class="e-stats"></p>
+                  <button class="empire-btn js-e-btn-3">Pick</button>
+                </div>
+              </div>
+              <div class="overview">
+                <p>You have now chosen an empire, press the economics tab to continue!</p>
+                <p>Civilians are gained depending on your score, every 100 score you get, you gain another civilian which will tax to your empire.</p>
+              </div>
+            </div>
+          </div>
+        </div>       
+
       </div>
+
+    </main>
+
+
+    <main role="main" class="v-economics">
+      <div class="game-window">
+        <div class="row row-center">
+          <div class="col col-center-t">
+            <h1 class="main-header">Imperium</h1>
+          </div>
+        </div>
+        <div class="row row-center">
+          <div class="col col-center-t stat-list">
+              <ul>
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <li id="e-name"></li>
+                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  <li id="e-score"></li>
+                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                  <li id="e-level"></li>
+                  <i class="fa fa-money" aria-hidden="true"></i>
+                  <li id="e-money"></li>
+              </ul>
+          </div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <div class="gameNav">
+                <a id="e-overview">Overview</a>
+                <a id="e-economics">Economics</a>
+                <a id="e-crates">Crates</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-content">
+          <hr>
+          <h1>Economics</h1>
+          <hr>
+          <div class="row row-center">
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Civilians</h2>
+                <hr>
+                <p id="buypanel-description">Generates $1 per second</p>
+                <div class="col col-btn">
+                    <button class="buy-btn-disabled">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-civilian-amount">0</h2>               
+              </div>
+            </div>
+
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Workers</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $5 per second</p>
+                <div class="buypanel-cost">
+                    <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-worker">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-worker-amount">0</h2>               
+              </div>
+            </div>
+
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Industries</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $20 per second</p>
+                <div class="buypanel-cost">
+                    <p id="industry-cost"></p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-industry">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-industry-amount">0</h2>               
+              </div>
+            </div>
+
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Companies</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $50 per second</p>
+                <div class="buypanel-cost">
+                    <p id="company-cost"></p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-company">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-company-amount">0</h2>               
+              </div>
+            </div>
+
+        </div>
+      </div>
+
     </main>
 
 
@@ -38,6 +183,6 @@
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
-    <script src="index.js"></script>
+    <script src="/game/index.js"></script>
   </body>
 </html>

@@ -4,13 +4,36 @@
 }
 
 html {
-    font-family: 'Open Sans', sans-serif;
-    background-color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #111111;
     height: 100%;
 }
 
 main {
-    padding-top: 300px;
+    padding-top: 150px;
+}
+
+footer {
+    height: 100px;
+    background-color: #37474f;
+    
+}
+
+footer p {
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    padding-top: 20px;
+}
+
+.main-header {
+    color: white;
+    font-size: 60px;
+    margin-bottom: 40px;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 .row-center {
@@ -26,11 +49,251 @@ main {
     text-align: center;
 }
 
+.content1 {
+    min-height: calc(105vh - 70px);
+}
+
+.content1 h1 {
+    color: white;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.empire {
+    height: 300px;
+    width: 300px;
+    background-color: #37474f;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.empire h3 {
+    color: white;
+    margin-top: 2px;
+}
+
+.empire p {
+    color: white;
+    font-size: 8px;
+}
+
+.e-stats {
+    color: white;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.empire-btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60px;
+    height: 25px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.4s, color 0.4s, border 0.4s;
+}
+
+.empire-btn:hover {
+    background-color: #37474f;
+    color: white;
+    border: 1px solid white;
+    transition: background-color 0.4s, color 0.4s, border 0.4s;
+}
+
+
+/* GAME CSS */
+
+
+
+#buypanel-description {
+    margin-top: 10px;
+    margin-bottom: 75px;
+}
+
+#buypanel-description-2 {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.buypanel-cost {
+    text-align: center;
+    width: 100%;
+}
+
+.buypanel-amount {
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.game-content {
+    background-color: #FFFFFF;
+}
+
+.game-content h1 {
+    margin: 0;
+    font-size: 40px;
+    text-align: center;
+}
+
+.gameNav {
+    text-align: center;
+}
+
+.gameNav a {
+    color: white;
+    background: #5b7882; /* Old browsers */
+    background: -moz-linear-gradient(top, #5b7882 3%, #37474f 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #5b7882 3%,#37474f 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #5b7882 3%,#37474f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b7882', endColorstr='#37474f',GradientType=0 ); /* IE6-9 */
+    font-size: 18px;
+    padding-right: 25px;
+    padding-left: 25px;
+    border: 2px solid #37474f;
+    border-bottom: 0;
+    text-align: center;
+    height: 50px;
+    text-decoration: none;
+    transition: background 0.4s, background-color 0.4s;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gameNav a:hover {
+    background: #3F5864; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 6%, #ffffff 99%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #ffffff 6%,#ffffff 99%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #7B9FB2 6%,#3F5864 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.stat-list {
+    text-align: center;
+    margin-top: 0;
+}
+
+.stat-list li {
+    font-size: 16px;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    color: white;
+}
+
+.fa {
+    color: white;
+}
+
+.game-content p {
+    font-size: 16px;
+    padding-left: 5px;
+    color: white;
+}
+
+.game-content h1 {
+    color: white;
+}
+
+.game-content hr {
+    border: 1px solid black;
+}
+
+@keyframes fadeInContent {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.game-content {
+    animation: 1s ease-out fadeInContent;
+    background-color: #37474f;
+}
+
+.buy-panel {
+    width: 200px;
+    height: 200px;
+    background-color: #37474f;
+    border: 2px solid black;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 10px 0px;
+    transition: box-shadow 0.5s;
+}
+
+.buy-panel:hover {
+    transition: box-shadow 0.5s;
+    box-shadow: 0px 0px 0px 0px;
+}
+
+.buy-panel h2 {
+    font-size: 18px;
+    text-align: center;
+    color: white;
+}
+
+.buy-panel p {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+.buy-panel hr {
+    border: 1px solid black;
+
+}
+
+.buy-btn {
+    color: white;
+    font-size: 18px;
+    border: 1px solid black;
+    background-color: #37474f;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    transition: border 0.2s;
+    margin-bottom: 10px;
+}
+
+.buy-btn:hover {
+    transition: border 0.2s;
+    border: 1px solid white;
+}
+
+.buy-btn-disabled {
+    color: white;
+    font-size: 18px;
+    border: 1px solid black;
+    background-color: #37474f;
+    height: 30px;
+    width: 70px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.col-btn {
+    position: relative;
+    text-align: center;
+    margin-top: 8px;
+}
+
 .navbar {
     position: fixed;
     background-color: #37474f;
     width: 100%;
-    height: 80px;
+    height: 60px;
     display: flex;
     justify-content: center;
     top: 0;
@@ -38,123 +301,83 @@ main {
 }
 
 .navbar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 25px;
-    transition: color 0.2s, border-bottom 0.2s;
-}
-
-.navbar a:hover {
-    color: #a7c0cd;
-    border-bottom: 5px solid #a7c0cd;
-    transition: color 0.2s, border-bottom 0.2s;
+    font-size: 16px;
 }
 
 .navbar li {
     display: inline-block;
 }
 
-.main-input {
-    color: black;
-    height: 70px;
-    width: 60%;
-    font-size: 28px;
-    margin-top: 20px;
-    padding-left: 20px;
+.fa {
+    margin: 0;
+    padding: 20px;
+    padding-right: 0;
 }
 
-.main-form-btn {
-    margin-top: 20px;
-    color:black;
-    height: 50px;
-    width: 15%;
-    font-size: 20px;
-    color: black;
-    background-color: white;
-    border: 1px solid black;
+.normal-btn {
+    float: left;
+    justify-content: left;
+    display: block;
+    color: #f2f2f2;
     text-decoration: none;
-    transition: color 0.4s, background-color 0.4s;
+    font-size: 12px;
+    padding: 20px;
+    transition: color 0.2s background-color 0.5s;
 }
 
-.main-form-btn:hover {
-    color: #a7c0cd;
-    background-color: #37474f;  
-    transition: color 0.4s, background-color 0.4s;
+.normal-btn:hover {
+    background-color: #5A7482;
+    transition: background-color 0.4s;
 }
 
-.card {
-    background: white;
+.user-btn {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 20px;
+    transition: background-color 0.5s;
+}
+
+.user-btn:hover {
+    background-color: #5A7482;
+    transition: background-color 0.4s;
+}
+
+.pre-overview {
+    background: #37474f;
     text-decoration: none;
     color: #444;
-    border: 1px solid black;
     margin: 20px;
-    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.2s ease;
+    text-align: center;
+    height: 350px;
 }
 
-.card:hover {
-    box-shadow: 0 0 0px 2px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.2s ease;
-}
-
-em {
-    text-decoration: none;
-    font-style: normal;
-    font-weight: bold;
-}
-
-.footer-container {
-    background-color: #37474f;
-    margin-top:300px;
-    height:200px;
-    position:relative;
-    bottom:0;
-}
-
-.footer-container h3 {
-    font-size: 16px;
-    margin-top: 20px;
-    padding-bottom: 20px;
+.pre-overview p {
     color: white;
 }
 
-.footer-container a {
-    font-size: 15px;
-    color: black;
-    background-color: white;
-    border: 1px solid black;
+.overview {
+    background: #37474f;
     text-decoration: none;
-    display: inline-block;
-    height: 40px;
-    width: 140px;
-    align-content: center;
-    transition: color 0.4s, background-color 0.4s;
+    color: #444;
+    margin: 20px;
+    text-align: center;
+    height: 350px;
 }
 
-.footer-container p {
-    padding-top: 8px;
+.overview p {
+    color: white;
 }
 
-.footer-container a:hover {
-    color: #a7c0cd;
-    background-color: #37474f;  
-    transition: color 0.4s, background-color 0.4s;
-}
 
 /* Small screens */
-@media (max-width: 575px) { 
+@media (max-width: 575px) {
     main {
-        padding-top: 150px;
+        padding-top: 50px;
     }
-
-    .current h1 {
-        font-size: 25px;
-        margin-bottom: 20px;
-    }
-
+    
     .navbar {
         position: fixed;
         background-color: #37474f;
@@ -171,9 +394,8 @@ em {
         display: block;
         color: #f2f2f2;
         text-decoration: none;
-        font-size: 15px;
+        font-size: 14px;
         padding-top: 15px;
-        margin-left: 25px;
     }
     .col-center {
         max-width: 100%;
@@ -181,7 +403,7 @@ em {
     .col-center-t {
     max-width: 100%;
     text-align: center;
-}
+    }
 
     .main-form-btn {
     margin-top: 20px;
@@ -189,10 +411,28 @@ em {
     height: 50px;
     width: 15%;
     font-size: 16px;
+    }
+
+    /* GAME CSS */
+    .game-window {
+        width: 100%;
+        height: 1200px;
+    }
+
+    .gameNav a {
+        color: black;
+        font-size: 12px;
+        border: 2px solid black;
+        text-align: center;
+        font-weight: bold;
+    }
+    .stat-list li {
+        font-size: 12px;
+        text-align: center;
+        font-weight: bold;
+    }
+
 }
-
- }
-
 /* Medium screens */
 @media all and (min-width: 600px) {
 
@@ -200,7 +440,7 @@ em {
 
 /* Large screens */
 @media all and (max-width: 800px) {
-        .col-center {
+    .col-center {
         max-width: 100%;
         text-align: center;
     }
