@@ -79,7 +79,7 @@ describe("Endpoint testing", function(){
 
         it("should update an empire on PUT", function(){
             const updatedEmpire = {
-                name: "British Empire",
+                name: "Test Empire 1",
                 score: 555,
                 level: 666,
                 money: 777,
