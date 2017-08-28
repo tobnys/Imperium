@@ -14,8 +14,8 @@ const {Empire} = require("./models");
 
 const app = express();
 app.use(express.static(publicDir));
+console.log(publicDir);
 app.use("/", homeRouter);
-app.use("/game", gameRouter);
 app.use("/api", apiRouter);
 app.use(morgan("common"));
 app.use(bodyParser.json());
@@ -31,6 +31,7 @@ function seedDatabase() {
         score: 0,
         level: 1,
         money: 500,
+        totalRevenue: 0,
         civilians: 0,
         workers: 0,
         industryBuildings: 0,
@@ -43,6 +44,7 @@ function seedDatabase() {
         score: 0,
         level: 1,
         money: 500,
+        totalRevenue: 0,
         civilians: 0,
         workers: 0,
         industryBuildings: 0,
@@ -55,6 +57,7 @@ function seedDatabase() {
         score: 0,
         level: 1,
         money: 500,
+        totalRevenue: 0,
         civilians: 0,
         workers: 0,
         industryBuildings: 0,

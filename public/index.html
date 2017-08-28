@@ -24,10 +24,6 @@
               <ul>
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <li id="o-name"></li>
-                <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                <li id="o-score"></li>
-                <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                <li id="o-level"></li>
                 <i class="fa fa-money" aria-hidden="true"></i>
                 <li id="o-money"></li>
               </ul>
@@ -39,6 +35,7 @@
             <div class="gameNav">
                 <a id="o-overview">Overview</a>
                 <a id="o-economics">Economics</a>
+                <a id="o-buildings">Buildings</a>
                 <a id="o-crates">Crates</a>
             </div>
           </div>
@@ -48,24 +45,79 @@
           <hr>
           <h1>Overview</h1>
           <hr>
-          <div class="row row-center">
-            <div class="col col-center">
-              <div class="pre-overview">
-                <div class="empire">
-                  <h3 id="e-name-1"></h3><p id="e-stats-1" class="e-stats"></p>
-                  <button class="empire-btn js-e-btn-1">Pick</button>
-                  <hr>
-                  <h3 id="e-name-2"></h3><p id="e-stats-2" class="e-stats"></p>
-                  <button class="empire-btn js-e-btn-2">Pick</button>
-                  <hr>
-                  <h3 id="e-name-3"></h3><p id="e-stats-3" class="e-stats"></p>
-                  <button class="empire-btn js-e-btn-3">Pick</button>
+              <div class="row">
+                <div class="col">
+                  <div class="pre-overview">
+                    <div class="empire">
+                      <div class="row empire-titles">
+                        <div class="col">
+                          <h3>Picture</h3>
+                        </div>
+                        <div class="col">
+                          <h3>Title</h3>
+                        </div>
+                        <div class="col">
+                          <h3>Bonus</h3>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row row-center empire-item">
+                          <div class="col">
+                              <img src="/images/capitol.png" class="empire-picture">
+                          </div>
+                          <div class="col">
+                              <h3 id="e-name-1"></h3><p id="e-stats-1" class="e-stats"></p>
+                              <button class="empire-btn js-e-btn-1">Pick</button>
+                          </div>
+                          <div class="col">
+                              <p class="e-stats-2">10% increased revenue</p>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row empire-item">
+                          <div class="col">
+                              <img src="/images/capitol.png" class="empire-picture">
+                          </div>
+                          <div class="col">
+                              <h3 id="e-name-2"></h3><p id="e-stats-2" class="e-stats"></p>
+                              <button class="empire-btn js-e-btn-2">Pick</button>
+                          </div>
+                          <div class="col">
+                              <p class="e-stats-2">30% luckier with crates</p>
+                          </div>
+                      </div>
+                      <hr>
+                      <div class="row empire-item">
+                          <div class="col">
+                              <img src="/images/capitol.png" class="empire-picture">
+                          </div>
+                          <div class="col">
+                            <h3 id="e-name-3"></h3><p id="e-stats-3" class="e-stats"></p>
+                            <button class="empire-btn-2 js-e-btn-3">Pick</button>
+                          </div>
+                          <div class="col">
+                            <p class="e-stats-2">+1 to civilian generation</p>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
+
               <div class="overview">
-                <p>You have now chosen an empire, press the economics tab to continue!</p>
-                <p>Civilians are gained depending on your score, every 100 score you get, you gain another civilian which will tax to your empire.</p>
-              </div>
+                <div class="row">
+                  <div class="col">
+                      <p>You have now chosen an empire, press the economics tab to start earning!</p>
+                      <br>
+                      <p>Civilians are automatically generated every 5 seconds to generate money for you passively.</p>
+                      <br>
+                      <p>In the "buildings" tab you can preserve your workers to work in different buildings, doing this will reserve your workers to gain revenue in said building instead!</p>
+                      <br>
+                      <p>To spend your hard earned money, head over to the "crates" tab in which you can spend money on crates to gain different bonuses across the game!</p>
+                    
+                  </div>
+                </div>
+                </div>
             </div>
           </div>
         </div>       
@@ -73,7 +125,6 @@
       </div>
 
     </main>
-
 
     <main role="main" class="v-economics">
       <div class="game-window">
@@ -87,10 +138,6 @@
               <ul>
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <li id="e-name"></li>
-                  <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                  <li id="e-score"></li>
-                  <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                  <li id="e-level"></li>
                   <i class="fa fa-money" aria-hidden="true"></i>
                   <li id="e-money"></li>
               </ul>
@@ -102,6 +149,7 @@
             <div class="gameNav">
                 <a id="e-overview">Overview</a>
                 <a id="e-economics">Economics</a>
+                <a id="e-buildings">Buildings</a>
                 <a id="e-crates">Crates</a>
             </div>
           </div>
@@ -110,6 +158,157 @@
         <div class="game-content">
           <hr>
           <h1>Economics</h1>
+          <hr>
+          <div class="row row-center">
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Civilians</h2>
+                <hr>
+                <p id="buypanel-description">Generates $1 per second</p>
+                <div class="col col-btn">
+                    <button class="buy-btn-disabled">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-civilian-amount">0</h2>           
+              </div>
+            </div>
+
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Workers</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $5 per second</p>
+                <div class="buypanel-cost">
+                    <p id="worker-cost">Cost: $100</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-worker">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-worker-amount">0</h2>               
+              </div>
+            </div>
+
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Industries</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $20 per second</p>
+                <div class="buypanel-cost">
+                    <p id="industry-cost"></p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-industry">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-industry-amount">0</h2>               
+              </div>
+            </div>
+
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Companies</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates $50 per second</p>
+                <div class="buypanel-cost">
+                    <p id="company-cost"></p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-company">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-company-amount">0</h2>               
+              </div>
+            </div>
+
+        </div>
+      </div>
+
+    </main>
+
+    <main role="main" class="v-buildings">
+      <div class="game-window">
+        <div class="row row-center">
+          <div class="col col-center-t">
+            <h1 class="main-header">Imperium</h1>
+          </div>
+        </div>
+        <div class="row row-center">
+          <div class="col col-center-t stat-list">
+              <ul>
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <li id="e-name"></li>
+                  <i class="fa fa-money" aria-hidden="true"></i>
+                  <li id="e-money"></li>
+              </ul>
+          </div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <div class="gameNav">
+              <a id="b-overview">Overview</a>
+              <a id="b-economics">Economics</a>
+              <a id="b-buildings">Buildings</a>
+              <a id="b-crates">Crates</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-content">
+          <hr>
+          <h1>Buildings</h1>
+          <hr>
+          <div class="row row-center">
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Civilians</h2>
+                <hr>
+                <p id="buypanel-description">Generates $1 per second</p>
+                <div class="col col-btn">
+                    <button class="buy-btn-disabled">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-civilian-amount">0</h2>             
+              </div>
+            </div>
+        </div>
+      </div>
+
+    </main>
+
+    <main role="main" class="v-crates">
+      <div class="game-window">
+        <div class="row row-center">
+          <div class="col col-center-t">
+            <h1 class="main-header">Imperium</h1>
+          </div>
+        </div>
+        <div class="row row-center">
+          <div class="col col-center-t stat-list">
+              <ul>
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <li id="e-name"></li>
+                  <i class="fa fa-money" aria-hidden="true"></i>
+                  <li id="e-money"></li>
+              </ul>
+          </div>
+        </div>
+
+        <div class="row row-center">
+          <div class="col">
+            <div class="gameNav">
+              <a id="c-overview">Overview</a>
+              <a id="c-economics">Economics</a>
+              <a id="c-buildings">Buildings</a>
+              <a id="c-crates">Crates</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="game-content">
+          <hr>
+          <h1>Crates</h1>
           <hr>
           <div class="row row-center">
             <div class="col col-center">
@@ -177,7 +376,6 @@
       </div>
 
     </main>
-
 
     <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"

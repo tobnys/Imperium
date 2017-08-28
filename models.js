@@ -1,4 +1,3 @@
-const bcrypt = require("bcryptjs");
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
@@ -12,6 +11,7 @@ const EmpireSchema = mongoose.Schema({
   score: Number,
   level: Number,
   money: Number,
+  totalRevenue: Number,
   civilians: Number,
   workers: Number,
   industryBuildings: Number,
@@ -23,8 +23,9 @@ EmpireSchema.methods.apiRepr = function(){
     name: this.name,
     score: this.score,
     level: this.level,
-    civilians: this.civilians,
     money: this.money,
+    totalRevenue: this.totalRevenue,
+    civilians: this.civilians,
     workers: this.workers,
     industryBuildings: this.industryBuildings,
     companies: this.companies
