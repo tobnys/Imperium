@@ -29,7 +29,7 @@ router.put("/empire/:id", jsonParser, (req, res) => {
     }
 
     const updated = {};
-    const updateableFields = ["score", "level", "money", "totalRevenue", "civilians", "workers", "industryBuildings", "companies"];
+    const updateableFields = ["score", "level", "money", "totalRevenue", "civilians", "workers", "industryBuildings", "companies", "moneyFactory", "hospital", "jobCenter", "totalBoost"];
     updateableFields.forEach(field => {
         updated[field] = req.body[field];
     });

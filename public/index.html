@@ -50,18 +50,18 @@
                   <div class="pre-overview">
                     <div class="empire">
                       <div class="row empire-titles">
-                        <div class="col">
+                        <div class="col empire-header">
                           <h3>Picture</h3>
                         </div>
-                        <div class="col">
+                        <div class="col empire-header">
                           <h3>Title</h3>
                         </div>
-                        <div class="col">
+                        <div class="col empire-header">
                           <h3>Bonus</h3>
                         </div>
                       </div>
-                      <hr>
-                      <div class="row row-center empire-item">
+                      <hr class="mobile-hide">
+                      <div class="row empire-item">
                           <div class="col">
                               <img src="/images/capitol.png" class="empire-picture">
                           </div>
@@ -114,10 +114,9 @@
                       <p>In the "buildings" tab you can preserve your workers to work in different buildings, doing this will reserve your workers to gain revenue in said building instead!</p>
                       <br>
                       <p>To spend your hard earned money, head over to the "crates" tab in which you can spend money on crates to gain different bonuses across the game!</p>
-                    
                   </div>
                 </div>
-                </div>
+              </div>
             </div>
           </div>
         </div>       
@@ -159,7 +158,7 @@
           <hr>
           <h1>Economics</h1>
           <hr>
-          <div class="row row-center">
+          <div class="row">
             <div class="col col-center">
               <div class="buy-panel">
                 <h2>Civilians</h2>
@@ -206,7 +205,7 @@
             </div>
 
             <div class="col col-center">
-              <div class="buy-panel">
+              <div class="buy-panel buy-panel-right">
                 <h2>Companies</h2>
                 <hr>
                 <p id="buypanel-description-2">Generates $50 per second</p>
@@ -237,9 +236,9 @@
           <div class="col col-center-t stat-list">
               <ul>
                   <i class="fa fa-user" aria-hidden="true"></i>
-                  <li id="e-name"></li>
+                  <li id="b-name"></li>
                   <i class="fa fa-money" aria-hidden="true"></i>
-                  <li id="e-money"></li>
+                  <li id="b-money"></li>
               </ul>
           </div>
         </div>
@@ -260,18 +259,56 @@
           <h1>Buildings</h1>
           <hr>
           <div class="row row-center">
+
             <div class="col col-center">
               <div class="buy-panel">
-                <h2>Civilians</h2>
+                <h2>Money Factory</h2>
                 <hr>
-                <p id="buypanel-description">Generates $1 per second</p>
+                <p id="buypanel-description-2">Rapidly generates $1 every 0.1 seconds</p>
+                <div class="buypanel-cost">
+                    <p id="moneyFactory-cost">Cost: $10,000</p>
+                </div>
                 <div class="col col-btn">
-                    <button class="buy-btn-disabled">Buy</button>
+                    <button class="buy-btn js-buy-moneyFactory">Buy</button>
                 </div>
                 <hr>
-                <h2 class="buypanel-amount" id="js-civilian-amount">0</h2>             
+                <h2 class="buypanel-amount" id="js-moneyFactory-amount">0</h2>               
+            </div>
+
+            </div>
+            <div class="col col-center">
+              <div class="buy-panel">
+                <h2>Hospital</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates one additional civilian every 5 seconds</p>
+                <div class="buypanel-cost">
+                    <p id="hospital-cost">Cost: $100,000</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-hospital">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-hospital-amount">0</h2>               
               </div>
             </div>
+
+            
+            <div class="col col-center">
+              <div class="buy-panel buy-panel-right">
+                <h2>Job Center</h2>
+                <hr>
+                <p id="buypanel-description-2">Generates one worker every 10 seconds</p>
+                <div class="buypanel-cost">
+                    <p id="jobCenter-cost">Cost: $100.000</p>
+                </div>
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-jobCenter">Buy</button>
+                </div>
+                <hr>
+                <h2 class="buypanel-amount" id="js-jobCenter-amount">0</h2>               
+              </div>
+            </div>
+
         </div>
       </div>
 
@@ -288,9 +325,9 @@
           <div class="col col-center-t stat-list">
               <ul>
                   <i class="fa fa-user" aria-hidden="true"></i>
-                  <li id="e-name"></li>
+                  <li id="c-name"></li>
                   <i class="fa fa-money" aria-hidden="true"></i>
-                  <li id="e-money"></li>
+                  <li id="c-money"></li>
               </ul>
           </div>
         </div>

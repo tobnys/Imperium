@@ -36,6 +36,10 @@ function seedDatabase() {
         workers: 0,
         industryBuildings: 0,
         companies: 0,
+        moneyFactory: 0,
+        hospital: 0,
+        jobCenter: 0,
+        totalBoost: 0,
     });
     
     Empire.create({
@@ -49,6 +53,10 @@ function seedDatabase() {
         workers: 0,
         industryBuildings: 0,
         companies: 0,
+        moneyFactory: 0,
+        hospital: 0,
+        jobCenter: 0,
+        totalBoost: 0,
     });
     
     Empire.create({
@@ -62,6 +70,10 @@ function seedDatabase() {
         workers: 0,
         industryBuildings: 0,
         companies: 0,
+        moneyFactory: 0,
+        hospital: 0,
+        jobCenter: 0,
+        totalBoost: 0,
     });
 };
 

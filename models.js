@@ -16,6 +16,10 @@ const EmpireSchema = mongoose.Schema({
   workers: Number,
   industryBuildings: Number,
   companies: Number,
+  moneyFactory: Number,
+  hospital: Number,
+  jobCenter: Number,
+  totalBoost: Number,
 });
 
 EmpireSchema.methods.apiRepr = function(){
@@ -28,7 +32,11 @@ EmpireSchema.methods.apiRepr = function(){
     civilians: this.civilians,
     workers: this.workers,
     industryBuildings: this.industryBuildings,
-    companies: this.companies
+    companies: this.companies,
+    moneyFactory: this.moneyFactory,
+    hospital: this.hospital,
+    jobCenter: this.jobCenter,
+    totalBoost: this.totalBoost,
   };
 }
 

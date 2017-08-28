@@ -162,6 +162,11 @@
             setInterval(companyMoneyGeneration, 1000);
             setInterval(civilianMoneyGeneration, 1000);
 
+            // BUILDINGS
+            setInterval(moneyFactoryGeneration, 100);
+            setInterval(hospitalGeneration, 5000);
+            setInterval(jobCenterGeneration, 10000);
+
             // GENERATE TOTAL REVENUE 
             setInterval(generateTotalRevenue, 1000);
 
@@ -551,12 +556,105 @@
     ////////////// BUILDINGS SECTION ////////////////////////////
     //////////////////////////////////////////////////////////////
 
+    const COST_DATA_BUILDINGS = {
+        "moneyFactory": 10000,
+        "hospital": 100000,
+        "companies": 100000
+    }
 
+    // INITIATE MONEY FACTORY ON BUTTON CLICK
+    $(".js-buy-moneyFactory").click(function(){
+        var newCost = COST_DATA_BUILDINGS.moneyFactory*empire.moneyFactory;
+        if(empire.money >= newCost) {
+            initiateMoneyFactory();
+            $("#js-moneyFactory-amount").text(empire.moneyFactory);
+        }
+        // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
+        else console.log("Not enough money..");
+    });
 
+    // INITIATE A MONEY FACTORY 
+    function initiateMoneyFactory() {
+        var newCost;
+        if(empire.moneyFactory === 0) {
+            $("#worker-cost").text(`Cost: $${COST_DATA_BUILDINGS.moneyFactory}`);
+            empire.money = empire.money-10000;
+            empire.moneyFactory = empire.moneyFactory+1;
+            newCost = COST_DATA_BUILDINGS.moneyFactory*empire.moneyFactory;
+        }
+        else {
+            empire.moneyFactory = empire.moneyFactory+1;
+            newCost = COST_DATA_BUILDINGS.moneyFactory*empire.moneyFactory;
+            empire.money = empire.money-newCost;
+            $("#moneyFactory-cost").text(`Cost: $${newCost}`);
+        } 
+    }
+    function moneyFactoryGeneration(){
+        empire.money = empire.money+empire.moneyFactory*1;
+    }   
 
+    // INITIATE HOSPITAL
+    $(".js-buy-hospital").click(function(){
+        var newCost = COST_DATA_BUILDINGS.hospital*empire.hospital;
+        if(empire.money >= newCost) {
+            initiateHospital();
+            $("#js-hospital-amount").text(empire.hospital);
+        }
+        // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
+        else console.log("Not enough money..");
+    });
 
+    // INITIATE A HOSPITAL
+    function initiateHospital() {
+        var newCost;
+        if(empire.hospital === 0) {
+            $("#hospital-cost").text(`Cost: $${COST_DATA_BUILDINGS.hospital}`);
+            empire.money = empire.money-100000;
+            empire.hospital = empire.hospital+1;
+            newCost = COST_DATA_BUILDINGS.hospital*empire.hospital;
+        }
+        else {
+            empire.hospital = empire.hospital+1;
+            newCost = COST_DATA_BUILDINGS.hospital*empire.hospital;
+            empire.money = empire.money-newCost;
+            $("#hospital-cost").text(`Cost: $${newCost}`);
+        } 
+    }
+    function hospitalGeneration(){
+        empire.civilians = empire.civilians+1;
+    }  
 
+    // INITIATE JOB CENTER
+    $(".js-buy-jobCenter").click(function(){
+        var newCost = COST_DATA_BUILDINGS.jobCenter*empire.jobCenter;
+        if(empire.money >= newCost) {
+            initiateJobCenter();
+            $("#js-jobCenter-amount").text(empire.jobCenter);
+        }
+        // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
+        else console.log("Not enough money..");
+    });
 
+    // INITIATE A JOB CENTER
+    function initiateJobCenter() {
+        var newCost;
+        if(empire.jobCenter === 0) {
+            $("#jobCenter-cost").text(`Cost: $${COST_DATA_BUILDINGS.hospital}`);
+            empire.money = empire.money-100000;
+            empire.jobCenter = empire.jobCenter+1;
+            newCost = COST_DATA_BUILDINGS.jobCenter*empire.jobCenter;
+        }
+        else {
+            empire.jobCenter = empire.jobCenter+1;
+            newCost = COST_DATA_BUILDINGS.hospital*empire.jobCenter;
+            empire.money = empire.money-newCost;
+            $("#jobCenter-cost").text(`Cost: $${newCost}`);
+        } 
+    }
+    function jobCenterGeneration(){
+        empire.workers = empire.workers+1;
+        $("#js-worker-amount").text(empire.workers);
+    }  
 
 
 
