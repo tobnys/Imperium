@@ -13,10 +13,13 @@
   <body>
 
     <main role="main" class="v-overview">
+      <div class="pop-overlay">
+        <p>You bought a worker!</p>
+      </div>
       <div class="game-window">
         <div class="row row-center">
           <div class="col col-center-t">
-            <h1 class="main-header">Imperium</h1>
+              <h1 class="main-header"><i class="fa fa-empire" aria-hidden="true"></i>Imperium</h1>
           </div>
         </div>
         <div class="row row-center">
@@ -126,6 +129,9 @@
     </main>
 
     <main role="main" class="v-economics">
+      <div class="pop-overlay">
+        <p>You bought a worker!</p>
+      </div>
       <div class="game-window">
         <div class="row row-center">
           <div class="col col-center-t">
@@ -226,6 +232,9 @@
     </main>
 
     <main role="main" class="v-buildings">
+      <div class="pop-overlay">
+        <p>You bought a worker!</p>
+      </div>
       <div class="game-window">
         <div class="row row-center">
           <div class="col col-center-t">
@@ -315,10 +324,19 @@
     </main>
 
     <main role="main" class="v-crates">
+      <div class="pop-overlay">
+        <p>You bought a worker!</p>
+      </div>
+      <div class="crate-overlay">
+          <div class="col col-btn">
+            <h2>Open bronze crate!</h2>
+            <button class="buy-btn js-claim-bronze-crate">Claim</button>
+          </div> 
+      </div>
       <div class="game-window">
         <div class="row row-center">
           <div class="col col-center-t">
-            <h1 class="main-header">Imperium</h1>
+            <h1 class="main-header"><i class="fa fa-empire" aria-hidden="true"> -</i>Imperium</h1>
           </div>
         </div>
         <div class="row row-center">
@@ -348,64 +366,46 @@
           <h1>Crates</h1>
           <hr>
           <div class="row row-center">
+
             <div class="col col-center">
               <div class="buy-panel">
-                <h2>Civilians</h2>
+                <h2>Bronze crate</h2>
                 <hr>
-                <p id="buypanel-description">Generates $1 per second</p>
-                <div class="col col-btn">
-                    <button class="buy-btn-disabled">Buy</button>
+                <p id="buypanel-description-2">Chance for a low quality boost</p>
+                <div class="buypanel-cost">
+                    <p id="bronze-crate-cost">Cost: $10,000</p>
                 </div>
-                <hr>
-                <h2 class="buypanel-amount" id="js-civilian-amount">0</h2>               
+                <div class="col col-btn">
+                    <button class="buy-btn js-buy-bronze-crate">Buy</button>
+                </div>             
               </div>
             </div>
 
             <div class="col col-center">
               <div class="buy-panel">
-                <h2>Workers</h2>
+                <h2>Silver crate</h2>
                 <hr>
-                <p id="buypanel-description-2">Generates $5 per second</p>
+                <p id="buypanel-description-2">Chance for a medium quality boost</p>
                 <div class="buypanel-cost">
-                    <p id="worker-cost">Cost: $100</p>
+                    <p id="silver-crate-cost">Cost: $100,000</p>
                 </div>
                 <div class="col col-btn">
-                    <button class="buy-btn js-buy-worker">Buy</button>
-                </div>
-                <hr>
-                <h2 class="buypanel-amount" id="js-worker-amount">0</h2>               
+                    <button class="buy-btn js-buy-silver-crate">Buy</button>
+                </div>              
               </div>
             </div>
 
             <div class="col col-center">
-              <div class="buy-panel">
-                <h2>Industries</h2>
+              <div class="buy-panel buy-panel-right">
+                <h2>Gold crate</h2>
                 <hr>
-                <p id="buypanel-description-2">Generates $20 per second</p>
+                <p id="buypanel-description-2">Chance for a high quality boost</p>
                 <div class="buypanel-cost">
-                    <p id="industry-cost"></p>
+                    <p id="gold-crate-cost">Cost: $1,000,000</p>
                 </div>
                 <div class="col col-btn">
-                    <button class="buy-btn js-buy-industry">Buy</button>
-                </div>
-                <hr>
-                <h2 class="buypanel-amount" id="js-industry-amount">0</h2>               
-              </div>
-            </div>
-
-            <div class="col col-center">
-              <div class="buy-panel">
-                <h2>Companies</h2>
-                <hr>
-                <p id="buypanel-description-2">Generates $50 per second</p>
-                <div class="buypanel-cost">
-                    <p id="company-cost"></p>
-                </div>
-                <div class="col col-btn">
-                    <button class="buy-btn js-buy-company">Buy</button>
-                </div>
-                <hr>
-                <h2 class="buypanel-amount" id="js-company-amount">0</h2>               
+                    <button class="buy-btn js-buy-gold-crate">Buy</button>
+                </div>              
               </div>
             </div>
 

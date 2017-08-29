@@ -56,6 +56,13 @@
     $(".v-economics").fadeToggle(0);
     $(".v-buildings").fadeToggle(0);
     $(".v-crates").fadeToggle(0);
+    // CRATE OVERLAY
+    //$(".crate-overlay").fadeToggle(0);
+    $(".crate-overlay").animate({
+        width: 0,
+        height: 0,
+        opacity: 0
+    });
 
     // UPDATE STATS
     function updateCurrentStats() {
@@ -662,6 +669,75 @@
     ////////////// CRATES SECTION ////////////////////////////
     //////////////////////////////////////////////////////////////
 
+    // INITIATE CRATE WINDOW
+    $(".js-buy-bronze-crate").click(function(){
+        // SIMPLE ANIMATION FOR THE CRATE WINDOW
+        $(".crate-overlay").animate({
+            width: 600,
+            height: 400,
+            opacity: 1
+        });
 
+        // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
+        $(".game-window").not(".crate-overlay").addClass("blur");
+
+        // DISABLE BUTTONS UNTIL CRATE CALCULATED
+        $(".buy-btn").addClass("buy-btn-disabled").removeClass("buy-btn");
+        initiateBronzeCrate();
+    });
+
+    // CLOSE CRATE WINDOW ON "SUBMIT" CLICK
+    $(".js-claim-bronze-crate").click(function(){
+        // SIMPLE ANIMATION FOR THE CRATE WINDOW
+        $(".crate-overlay").animate({
+            width: 0,
+            height: 0,
+            opacity: 0
+        });
+        // UNBLUR THE BACKGROUND
+        $(".game-window").removeClass("blur");
+    });
+
+    // BRONZE CRATE FUNCTION
+    function initiateBronzeCrate(){
+
+        // ENABLE KEY SOMEWHERE HERE IN A CALLBACK
+
+        // FINISH FUNCTION, CLAIM REWARD
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // INITIATE SILVER CRATE
+    $(".js-buy-silver-crate").click(function(){
+        
+    });
+
+    // SILVER CRATE FUNCTION
+    function initiateSilverCrate(){
+        
+     };
+
+    // INITIATE GOLD CRATE
+    $(".js-buy-gold-crate").click(function(){
+        
+    });
+
+    // GOLD CRATE FUNCTION
+    function initiateGoldCrate(){
+
+    };
 
 })();
