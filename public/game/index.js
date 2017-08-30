@@ -22,7 +22,7 @@
         type: "GET",
         dataType: "json",
         contentType: "application/json",
-        url: `http://localhost:8080/api/empire/`
+        url: `https://imperium-game.herokuapp.com/api/empire/`
     }).then(function(e){
         console.log(`Updating empire stats...`)
         // UPDATING EMPIRE 1
@@ -137,7 +137,7 @@
             dataType: "json",
             data: JSON.stringify(empire)    ,
             contentType: "application/json",
-            url: `http://localhost:8080/api/empire/${empire.id}`,
+            url: `https://imperium-game.herokuapp.com/api/empire/${empire.id}`,
             success: function(success) {
                 console.log("Empire saved to database.");
             },
@@ -158,7 +158,7 @@
             type: "GET",
             dataType: "json",
             contentType: "application/json",
-            url: `http://localhost:8080/api/empire/${id}`
+            url: `https://imperium-game.herokuapp.com/api/empire/${id}`
         }).then(function(e){
             console.log(`Empire ID ${id} selected.`)
             empire = e;

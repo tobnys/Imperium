@@ -91,7 +91,7 @@ app.all("*", (req, res) => {
 
 
 let server;
-function runServer(databaseURL=TEST_DATABASE_URL, port=PORT){
+function runServer(databaseURL=DATABASE_URL, port=PORT){
     return new Promise((resolve, reject) => {
         mongoose.connect(databaseURL, err => {
             if(err) {
