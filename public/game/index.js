@@ -64,6 +64,13 @@
         opacity: 0
     });
 
+    $(".crate-overlay").children().hide();
+
+    // POP OVERLAY
+    $(".pop-overlay").animate({
+        opacity: 0
+    });
+
     // UPDATE STATS
     function updateCurrentStats() {
         // ECONOMICS VIEW
@@ -253,6 +260,44 @@
         $("#js-company-amount").text(empire.companies);   
     }
 
+    function loadBuildingStats(){
+        // MONEY FACTORY
+        let moneyFactoryValue;
+        if(empire.moneyFactory === 0) {
+            moneyFactoryValue = COST_DATA.moneyFactory;
+        }
+        else {
+            moneyFactoryValue = COST_DATA.moneyFactory*empire.moneyFactory;
+        }
+
+        $("#moneyFactory-cost").text(`Cost: $${moneyFactoryValue}`)
+        $("#js-moneyFactory-amount").text(empire.jobCenter);
+
+        // HOSPITAL
+        let hospitalValue;
+        if(empire.hospital === 0) {
+            hospitalValue = COST_DATA.hospital;
+        }
+        else {
+            hospitalValue = COST_DATA.hospital*empire.hospital;
+        }
+
+        $("#hospital-cost").text(`Cost: $${hospitalValue}`)
+        $("#js-hospital-amount").text(empire.hospital);
+
+        // JOB CENTER
+        let jobCenterValue;
+        if(empire.jobCenter === 0) {
+            jobCenterValue = COST_DATA.jobCenter;
+        }
+        else {
+            jobCenterValue = COST_DATA.jobCenter*empire.jobCenter;
+        }
+
+        $("#jobCenter-cost").text(`Cost: $${jobCenterValue}`)
+        $("#js-jobCenter-amount").text(empire.jobCenter);
+    }
+
     // ECONOMICS ROUTING
     $(`#o-economics`).click(function(){
         if(currentView === "economics"){
@@ -361,7 +406,7 @@
                     currentView = "buildings";
 
                     // UPDATE STATS ON BUILDINGS PAGE FOR COSTS AND AMOUNTS
-                    // HERE
+                    loadBuildingStats();
                 }
             });
         }
@@ -377,7 +422,7 @@
                     currentView = "buildings";
 
                     // UPDATE STATS ON BUILDINGS PAGE FOR COSTS AND AMOUNTS
-                    // HERE
+                    loadBuildingStats();
                 }
             });
         }
@@ -393,7 +438,7 @@
                     currentView = "buildings";
 
                     // UPDATE STATS ON BUILDINGS PAGE FOR COSTS AND AMOUNTS
-                    // HERE
+                    loadBuildingStats();
                 }
             });
         }
@@ -456,7 +501,10 @@
     const COST_DATA = {
         "workers": 100,
         "industryBuildings": 500,
-        "companies": 2000
+        "companies": 2000,
+        "moneyFactory": 10000,
+        "hospital": 100000,
+        "jobCenter": 100000,
     }
 
     const REVENUE_DATA = {
@@ -465,12 +513,35 @@
         "companies": 50
     }
 
+    function popOverlay(text){
+        // POP OVERLAY
+        $(".pop-overlay").animate({
+            top: 0,
+            opacity: 1
+        });
+
+        // ADD TEXT FOR ECONOMIC VIEW
+        $("#pop-overlay-text").text(text);
+        // ADD TEXT FOR BUILDING VIEW
+        $("#b-pop-overlay-text").text(text);
+        // ADD TEXT FOR CRATE VIEW
+        $("#c-pop-overlay-text").text(text);
+
+        setTimeout(function(){
+            $(".pop-overlay").animate({
+                top: -200,
+                opacity: 0
+            });
+        }, 3000);
+    }
+
     // INITIATE WORKER ON BUTTON CLICK
     $(".js-buy-worker").click(function(){
         var newCost = COST_DATA.workers*empire.workers;
         if(empire.money >= newCost) {
             initiateWorker();
             $("#js-worker-amount").text(empire.workers);
+            popOverlay("You bought a worker!");
         }
         // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
         else console.log("Not enough money..");
@@ -482,6 +553,7 @@
         if(empire.money >= newCost) {
             initiateIndustry();
             $("#js-industry-amount").text(empire.industryBuildings);
+            popOverlay("You bought an industry!");
         }
         // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
         else console.log("Not enough money..");
@@ -493,6 +565,7 @@
         if(empire.money >= newCost) {
             initiateCompany();
             $("#js-company-amount").text(empire.companies);
+            popOverlay("You bought a company!");
         }
         // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
         else console.log("Not enough money..");
@@ -566,7 +639,7 @@
     const COST_DATA_BUILDINGS = {
         "moneyFactory": 10000,
         "hospital": 100000,
-        "companies": 100000
+        "jobCenter": 100000
     }
 
     // INITIATE MONEY FACTORY ON BUTTON CLICK
@@ -575,6 +648,7 @@
         if(empire.money >= newCost) {
             initiateMoneyFactory();
             $("#js-moneyFactory-amount").text(empire.moneyFactory);
+            popOverlay("You bought a Money Factory!");
         }
         // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
         else console.log("Not enough money..");
@@ -606,6 +680,7 @@
         if(empire.money >= newCost) {
             initiateHospital();
             $("#js-hospital-amount").text(empire.hospital);
+            popOverlay("You bought a hospital!");
         }
         // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
         else console.log("Not enough money..");
@@ -637,6 +712,7 @@
         if(empire.money >= newCost) {
             initiateJobCenter();
             $("#js-jobCenter-amount").text(empire.jobCenter);
+            popOverlay("You bought a Job Center!");
         }
         // CREATE VISUAL ERROR MESSAGE HERE // MODAL?
         else console.log("Not enough money..");
@@ -678,15 +754,128 @@
             opacity: 1
         });
 
+        // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
+        $(".crate-overlay").children().show();
+
         // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
         $(".game-window").not(".crate-overlay").addClass("blur");
 
-        // DISABLE BUTTONS UNTIL CRATE CALCULATED
-        $(".buy-btn").addClass("buy-btn-disabled").removeClass("buy-btn");
+        // INITIATE BRONZE CRATE FUNCTION
         initiateBronzeCrate();
     });
 
-    // CLOSE CRATE WINDOW ON "SUBMIT" CLICK
+    // BRONZE CRATE FUNCTION
+    function initiateBronzeCrate(){
+        let value = Math.round(Math.random()*100);
+        empire.money = empire.money-10000;
+        if(value < 25){
+            $("#crate-reward").text("You received five workers!");
+            empire.workers = empire.workers+5;
+        }
+        else if(value < 50 && value > 25){
+            $("#crate-reward").text("You received five industries!");
+            empire.industryBuildings = empire.industryBuildings+5;
+        }
+        else if(value < 75 && value > 50){
+            $("#crate-reward").text("You received five workers & five companies!");
+            empire.workers = empire.workers+5;
+            empire.companies = empire.companies+5;
+        }
+        else if(value < 100 && value > 75){
+            $("#crate-reward").text("You received five companies & $5000!");
+            empire.companies = empire.companies+5;
+            empire.money = empire.money+5000;
+        }
+    };
+
+    // INITIATE SILVER CRATE
+    $(".js-buy-silver-crate").click(function(){
+        // SIMPLE ANIMATION FOR THE CRATE WINDOW
+        $(".crate-overlay").animate({
+            width: 600,
+            height: 400,
+            opacity: 1
+        });
+
+        // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
+        $(".crate-overlay").children().show();
+
+        // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
+        $(".game-window").not(".crate-overlay").addClass("blur");
+
+        // INITIATE SILVER CRATE FUNCTION
+        initiateSilverCrate();
+    });
+
+    // SILVER CRATE FUNCTION
+    function initiateSilverCrate(){
+        let value = Math.round(Math.random()*100);
+        empire.money = empire.money-100000;
+        if(value < 25){
+            $("#crate-reward").text("You received twenty workers!");
+            empire.workers = empire.workers+20;
+        }
+        else if(value < 50 && value > 25){
+            $("#crate-reward").text("You received twenty industries!");
+            empire.industryBuildings = empire.industryBuildings+20;
+        }
+        else if(value < 75 && value > 50){
+            $("#crate-reward").text("You received twenty workers & twenty companies!");
+            empire.workers = empire.workers+20;
+            empire.companies = empire.companies+20;
+        }
+        else if(value < 100 && value > 75){
+            $("#crate-reward").text("You received twenty companies & $50,000!");
+            empire.companies = empire.companies+20;
+            empire.money = empire.money+50000;
+        }
+    };
+
+    // INITIATE GOLD CRATE
+    $(".js-buy-gold-crate").click(function(){
+        // SIMPLE ANIMATION FOR THE CRATE WINDOW
+        $(".crate-overlay").animate({
+            width: 600,
+            height: 400,
+            opacity: 1
+        });
+
+        // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
+        $(".crate-overlay").children().show();
+
+        // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
+        $(".game-window").not(".crate-overlay").addClass("blur");
+
+        // INITIATE BRONZE CRATE FUNCTION
+        initiateGoldCrate();
+    });
+
+    // GOLD CRATE FUNCTION
+    function initiateGoldCrate(){
+        let value = Math.round(Math.random()*100);
+        empire.money = empire.money-1000000;
+        if(value < 25){
+            $("#crate-reward").text("You received fifty companies!");
+            empire.companies = empire.companies+50;
+        }
+        else if(value < 50 && value > 25){
+            $("#crate-reward").text("You received ten money factories!");
+            empire.moneyFactory = empire.moneyFactory+5;
+        }
+        else if(value < 75 && value > 50){
+            $("#crate-reward").text("You received five hospitals & five companies!");
+            empire.hospital = empire.hospital+5;
+            empire.companies = empire.companies+5;
+        }
+        else if(value < 100 && value > 75){
+            $("#crate-reward").text("You received five job centers & $500,000!");
+            empire.jobCenter = empire.jobCenter+5;
+            empire.money = empire.money+500000;
+        }
+    };
+
+    // CLOSE CRATE WINDOWS --------------------------------
+    // BRONZE
     $(".js-claim-bronze-crate").click(function(){
         // SIMPLE ANIMATION FOR THE CRATE WINDOW
         $(".crate-overlay").animate({
@@ -694,50 +883,44 @@
             height: 0,
             opacity: 0
         });
+
+        // HIDE OVERLAY CONTENT (CHILDREN)
+        $(".crate-overlay").children().hide();
+
         // UNBLUR THE BACKGROUND
         $(".game-window").removeClass("blur");
     });
 
-    // BRONZE CRATE FUNCTION
-    function initiateBronzeCrate(){
+    // SILVER
+    $(".js-claim-silver-crate").click(function(){
+        // SIMPLE ANIMATION FOR THE CRATE WINDOW
+        $(".crate-overlay").animate({
+            width: 0,
+            height: 0,
+            opacity: 0
+        });
 
-        // ENABLE KEY SOMEWHERE HERE IN A CALLBACK
+        // HIDE OVERLAY CONTENT (CHILDREN)
+        $(".crate-overlay").children().hide();
 
-        // FINISH FUNCTION, CLAIM REWARD
-    };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // INITIATE SILVER CRATE
-    $(".js-buy-silver-crate").click(function(){
-        
+        // UNBLUR THE BACKGROUND
+        $(".game-window").removeClass("blur");
     });
 
-    // SILVER CRATE FUNCTION
-    function initiateSilverCrate(){
-        
-     };
+    // GOLD
+    $(".js-claim-gold-crate").click(function(){
+        // SIMPLE ANIMATION FOR THE CRATE WINDOW
+        $(".crate-overlay").animate({
+            width: 0,
+            height: 0,
+            opacity: 0
+        });
 
-    // INITIATE GOLD CRATE
-    $(".js-buy-gold-crate").click(function(){
-        
+        // HIDE OVERLAY CONTENT (CHILDREN)
+        $(".crate-overlay").children().hide();
+
+        // UNBLUR THE BACKGROUND
+        $(".game-window").removeClass("blur");
     });
-
-    // GOLD CRATE FUNCTION
-    function initiateGoldCrate(){
-
-    };
 
 })();
