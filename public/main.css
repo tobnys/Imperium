@@ -5,7 +5,11 @@
 
 html {
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #111111;
+    background: url("/images/91926kpadCj5wmmJ4G2MRGg8m6.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     height: 100%;
 }
 
@@ -27,13 +31,26 @@ footer p {
 }
 
 .main-header {
-    color: white;
+    color: #FFFFFF;
     font-size: 60px;
     margin-bottom: 40px;
+    text-shadow: 3px 3px 15px black;
+}
+
+.main-header i {
+    font-size: 60px;
+    margin-right: 15px;
+    color: #FFFFFF;
 }
 
 .hidden {
     opacity: 0;
+    display: none;
+}
+
+.blur {
+    filter: blur(5px);
+    transition: all 0.5s;
 }
 
 .row-center {
@@ -49,58 +66,86 @@ footer p {
     text-align: center;
 }
 
-.content1 {
-    min-height: calc(105vh - 70px);
-}
-
-.content1 h1 {
-    color: white;
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-
 .empire {
-    height: 300px;
-    width: 300px;
+    height: 93%;
+    width: 400px;
     background-color: #37474f;
     display: inline-block;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 10px;
 }
 
 .empire h3 {
     color: white;
-    margin-top: 2px;
+    text-shadow: 2px 2px black;
 }
 
 .empire p {
     color: white;
     font-size: 8px;
+    text-shadow: 2px 2px black;
+}
+
+.empire-picture {
+    width: 80px;
+    height: 80px;
+    padding-top: 10px;
 }
 
 .e-stats {
     color: white;
     font-size: 14px;
+    margin-top: 10px;
+}
+
+.e-stats-2 {
+    margin-top: 25px;
+}
+
+.empire-titles {
     margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.empire-item {
 }
 
 .empire-btn {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 60px;
-    height: 25px;
+    margin-top: 5px;
+    width: 100px;
+    height: 30px;
     background-color: white;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.4s, color 0.4s, border 0.4s;
+}
+
+.empire-btn-2 {
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.4s, color 0.4s, border 0.4s;
+}
+
+.empire-btn-2:hover {
+    background-color: #37474f;
+    color: white;
+    border: 2px solid white;
+    transition: background-color 0.4s, color 0.4s, border 0.4s;
+    cursor: pointer;
 }
 
 .empire-btn:hover {
     background-color: #37474f;
     color: white;
-    border: 1px solid white;
+    border: 2px solid white;
     transition: background-color 0.4s, color 0.4s, border 0.4s;
+    cursor: pointer;
 }
 
 
@@ -184,6 +229,7 @@ footer p {
     display: inline-block;
     font-weight: bold;
     color: white;
+    text-shadow: 1px 1px 2px black;
 }
 
 .fa {
@@ -219,12 +265,11 @@ footer p {
 }
 
 .buy-panel {
-    width: 200px;
     height: 200px;
     background-color: #37474f;
     border: 2px solid black;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 40px;
     margin-bottom: 20px;
     text-align: center;
     box-shadow: 0px 0px 10px 0px;
@@ -234,6 +279,10 @@ footer p {
 .buy-panel:hover {
     transition: box-shadow 0.5s;
     box-shadow: 0px 0px 0px 0px;
+}
+
+.buy-panel-right {
+    margin-right: 40px;
 }
 
 .buy-panel h2 {
@@ -254,31 +303,38 @@ footer p {
 }
 
 .buy-btn {
-    color: white;
-    font-size: 18px;
-    border: 1px solid black;
-    background-color: #37474f;
-    height: 30px;
-    width: 70px;
-    border-radius: 10px;
+    color: black;
+    font-size: 14px;
     transition: border 0.2s;
     margin-bottom: 10px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: background-color 0.4s, color 0.4s, border 0.4s;
 }
 
 .buy-btn:hover {
-    transition: border 0.2s;
-    border: 1px solid white;
+    transition: background-color 0.4s, color 0.4s, border 0.4s;
+    background-color: #37474f;
+    color: white;
+    border: 2px solid white;
+    cursor: pointer;
 }
 
 .buy-btn-disabled {
-    color: white;
-    font-size: 18px;
-    border: 1px solid black;
-    background-color: #37474f;
-    height: 30px;
-    width: 70px;
-    border-radius: 10px;
+    color: black;
+    font-size: 14px;
+    transition: border 0.2s;
     margin-bottom: 10px;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
     cursor: not-allowed;
     opacity: 0.5;
 }
@@ -369,8 +425,70 @@ footer p {
 
 .overview p {
     color: white;
+    text-shadow: 2px 2px 10px black;
 }
 
+.pop-overlay {
+    display: block;
+    margin: auto;
+    width: 300px;
+    height: 80px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: -200px;
+    bottom: 900px;
+    background-color: #345C70;
+    border: 3px solid black;
+    z-index: 1;
+}
+
+.pop-overlay p {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 30px;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+
+.crate-overlay {
+    display: block;
+    margin: auto;
+    width: 500px;
+    height: 400px;
+    position: fixed;
+    left:0;
+    right: 0;
+    top: 40px;
+    bottom: 0;
+    background-color: #345C70;
+    border: 2px solid black;
+    z-index: 1;
+}
+
+.crate-overlay p {
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+.crate-overlay h2 {
+    margin-top: 30px;
+    margin-bottom: 100px;
+    font-size: 18px;
+    color: white;
+    text-shadow: 1px 1px 3px black;
+}
+
+.crate-overlay button {
+    margin-top: 30px;
+}
+
+#crate-reward {
+    font-size: 22px;
+    color: #69B369;
+    margin-bottom: 100px;
+}
 
 /* Small screens */
 @media (max-width: 575px) {
@@ -420,8 +538,8 @@ footer p {
     }
 
     .gameNav a {
-        color: black;
-        font-size: 12px;
+        color: white;
+        font-size: 13px;
         border: 2px solid black;
         text-align: center;
         font-weight: bold;
@@ -430,6 +548,55 @@ footer p {
         font-size: 12px;
         text-align: center;
         font-weight: bold;
+        
+    }
+
+    .empire {
+        width: 350px;
+        height: 90%;
+    }
+
+    .pre-overview {
+        height: 800px;
+    }
+
+    .overview {
+        width: 70%;
+        margin-left: 70px;
+    }
+
+    .buy-panel {
+        width: 200px;
+        height: 200px;
+        margin-top: 20px;
+        margin-left: 100px;
+        margin-bottom: 5px;
+    }
+
+    .e-stats-2 {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    
+    .empire-titles {
+        visibility: hidden;
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .mobile-hide {
+        visibility: hidden;
+    }
+
+    .empire-header {
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    .crate-overlay {
+        width: 300px;
+        height: 300px;
     }
 
 }

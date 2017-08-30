@@ -14,8 +14,8 @@ const {Empire} = require("./models");
 
 const app = express();
 app.use(express.static(publicDir));
+console.log(publicDir);
 app.use("/", homeRouter);
-app.use("/game", gameRouter);
 app.use("/api", apiRouter);
 app.use(morgan("common"));
 app.use(bodyParser.json());
@@ -31,10 +31,15 @@ function seedDatabase() {
         score: 0,
         level: 1,
         money: 500,
+        totalRevenue: 0,
         civilians: 0,
         workers: 0,
         industryBuildings: 0,
         companies: 0,
+        moneyFactory: 0,
+        hospital: 0,
+        jobCenter: 0,
+        totalBoost: 0,
     });
     
     Empire.create({
@@ -43,10 +48,15 @@ function seedDatabase() {
         score: 0,
         level: 1,
         money: 500,
+        totalRevenue: 0,
         civilians: 0,
         workers: 0,
         industryBuildings: 0,
         companies: 0,
+        moneyFactory: 0,
+        hospital: 0,
+        jobCenter: 0,
+        totalBoost: 0,
     });
     
     Empire.create({
@@ -55,10 +65,15 @@ function seedDatabase() {
         score: 0,
         level: 1,
         money: 500,
+        totalRevenue: 0,
         civilians: 0,
         workers: 0,
         industryBuildings: 0,
         companies: 0,
+        moneyFactory: 0,
+        hospital: 0,
+        jobCenter: 0,
+        totalBoost: 0,
     });
 };
 
@@ -76,7 +91,7 @@ app.all("*", (req, res) => {
 
 
 let server;
-function runServer(databaseURL=TEST_DATABASE_URL, port=PORT){
+function runServer(databaseURL=DATABASE_URL, port=PORT){
     return new Promise((resolve, reject) => {
         mongoose.connect(databaseURL, err => {
             if(err) {

@@ -55,12 +55,6 @@ describe("Endpoint testing", function(){
                 });
             });
             
-            it("should return status 200 on /game GET", function(){
-                return chai.request(app).get("/game").then(function(res){
-                    res.should.have.status(200);
-                });
-            });
-            
             it("should return empires on GET", function(){
                 let res;
                 return chai.request(app).get("/api/empire").then(function(_res){
@@ -83,16 +77,21 @@ describe("Endpoint testing", function(){
                 score: 555,
                 level: 666,
                 money: 777,
+                totalRevenue: 400,
+                civilians: 50,
                 workers: 888,
                 industryBuildings: 999,
-                companies: 000
+                companies: 000,
+                moneyFactory: 12,
+                hospital: 15,
+                jobCenter: 16,
+                totalBoost: 200,
             }
             
             return Empire.findOne().exec().then(function(empire){
                 updatedEmpire.id = empire.id;
                 return chai.request(app).put(`/api/empire/${updatedEmpire.id}`).send(updatedEmpire);
             }).then(function(res){
-                console.log("2")
                 res.should.have.status(201);
                 return Empire.findOne({id: updatedEmpire.id}).exec();
             }).then(function(empire){
