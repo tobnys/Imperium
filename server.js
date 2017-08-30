@@ -1,6 +1,6 @@
 // REQUIRE
 const express = require("express");
-const {PORT, TEST_DATABASE_URL, publicDir} = require("./config")
+const {PORT, TEST_DATABASE_URL, DATABASE_URL, publicDir} = require("./config")
 const homeRouter = require("./routes/homeRouter");
 const gameRouter = require("./routes/gameRouter");
 const apiRouter = require("./routes/apiRouter");
