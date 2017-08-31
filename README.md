@@ -18,9 +18,11 @@ Bottom line is, I have been learning a lot through this whole project and it can
 
 ## API Documentation
 Retrieves all available empire objects from the database.
+
 GET endpoint - ../api/empire
 
 Retrieves a single matching empire object from the database using the query from the parameter in the URL.
+
 GET endpoint - ../api/empire/:id
 
 
