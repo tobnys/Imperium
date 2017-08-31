@@ -10,9 +10,18 @@ In Imperium players can build their own fictional empire. The game is heavily ba
 https://imperium-game.herokuapp.com/
 
 ## Summary
-This application was made as a project for Thinkful's "Node Capstone project" and I put my mind to it and decided to make some sort of game. I definitely did some mistakes while scoping up the application, there was a lot of things that I did not think about
+This application was made as a project for Thinkful's "Node Capstone project" and I put my mind to it and decided to make some sort of game. I definitely did some mistakes while scoping up the application, there was a lot of things that I did not think about.
+
+The game is essentially a so called "idle game" which means that the player does something which then can be automated so the player then can "idle" away from the game and check back later. That is the case here where a player can set up their economy to generate revenue and then later buy different crates for example.
 
 Bottom line is, I have been learning a lot through this whole project and it can only get better from here!
+
+## API Documentation
+GET endpoint - ../api/empire
+Retrieves all available empire objects from the database.
+
+GET endpoint - ../api/empire/:id
+Retrieves a single matching empire object from the database using the query from the parameter in the URL.
 
 ## Technology used
 
