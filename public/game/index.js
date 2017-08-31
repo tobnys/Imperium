@@ -747,27 +747,32 @@
 
     // INITIATE CRATE WINDOW
     $(".js-buy-bronze-crate").click(function(){
-        // SIMPLE ANIMATION FOR THE CRATE WINDOW
-        $(".crate-overlay").animate({
-            width: 600,
-            height: 400,
-            opacity: 1
-        });
+        if(empire.money >= 10000){
+            empire.money = empire.money-10000;
+            // SIMPLE ANIMATION FOR THE CRATE WINDOW
+            $(".crate-overlay").animate({
+                width: 600,
+                height: 400,
+                opacity: 1
+            });
 
-        // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
-        $(".crate-overlay").children().show();
+            // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
+            $(".crate-overlay").children().show();
 
-        // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
-        $(".game-window").not(".crate-overlay").addClass("blur");
+            // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
+            $(".game-window").not(".crate-overlay").addClass("blur");
 
-        // INITIATE BRONZE CRATE FUNCTION
-        initiateBronzeCrate();
+            // INITIATE BRONZE CRATE FUNCTION
+            initiateBronzeCrate();
+        }
+        else {
+            popOverlay("You do not have enough money!")
+        }
     });
 
     // BRONZE CRATE FUNCTION
     function initiateBronzeCrate(){
         let value = Math.round(Math.random()*100);
-        empire.money = empire.money-10000;
         if(value < 25){
             $("#crate-reward").text("You received five workers!");
             empire.workers = empire.workers+5;
@@ -790,21 +795,27 @@
 
     // INITIATE SILVER CRATE
     $(".js-buy-silver-crate").click(function(){
-        // SIMPLE ANIMATION FOR THE CRATE WINDOW
-        $(".crate-overlay").animate({
-            width: 600,
-            height: 400,
-            opacity: 1
-        });
+        if(empire.money >= 100000){
+            empire.money = empire.money-100000;
+            // SIMPLE ANIMATION FOR THE CRATE WINDOW
+            $(".crate-overlay").animate({
+                width: 600,
+                height: 400,
+                opacity: 1
+            });
 
-        // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
-        $(".crate-overlay").children().show();
+            // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
+            $(".crate-overlay").children().show();
 
-        // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
-        $(".game-window").not(".crate-overlay").addClass("blur");
+            // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
+            $(".game-window").not(".crate-overlay").addClass("blur");
 
-        // INITIATE SILVER CRATE FUNCTION
-        initiateSilverCrate();
+            // INITIATE BRONZE CRATE FUNCTION
+            initiateSilverCrate();
+        }
+        else {
+            popOverlay("You do not have enough money!")
+        }
     });
 
     // SILVER CRATE FUNCTION
@@ -833,21 +844,27 @@
 
     // INITIATE GOLD CRATE
     $(".js-buy-gold-crate").click(function(){
-        // SIMPLE ANIMATION FOR THE CRATE WINDOW
-        $(".crate-overlay").animate({
-            width: 600,
-            height: 400,
-            opacity: 1
-        });
+        if(empire.money >= 1000000){
+            empire.money = empire.money-1000000;
+            // SIMPLE ANIMATION FOR THE CRATE WINDOW
+            $(".crate-overlay").animate({
+                width: 600,
+                height: 400,
+                opacity: 1
+            });
 
-        // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
-        $(".crate-overlay").children().show();
+            // SHOW THE CONTENTS (CHILDREN) OF THE OVERLAY
+            $(".crate-overlay").children().show();
 
-        // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
-        $(".game-window").not(".crate-overlay").addClass("blur");
+            // BLUR THE BACKGROUND FOR MORE FOCUS ON THE CRATE WINDOW
+            $(".game-window").not(".crate-overlay").addClass("blur");
 
-        // INITIATE BRONZE CRATE FUNCTION
-        initiateGoldCrate();
+            // INITIATE BRONZE CRATE FUNCTION
+            initiateGoldCrate();
+        }
+        else {
+            popOverlay("You do not have enough money!")
+        }
     });
 
     // GOLD CRATE FUNCTION
