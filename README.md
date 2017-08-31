@@ -17,11 +17,12 @@ The game is essentially a so called "idle game" which means that the player does
 Bottom line is, I have been learning a lot through this whole project and it can only get better from here!
 
 ## API Documentation
-GET endpoint - ../api/empire
 Retrieves all available empire objects from the database.
+GET endpoint - ../api/empire
 
-GET endpoint - ../api/empire/:id
 Retrieves a single matching empire object from the database using the query from the parameter in the URL.
+GET endpoint - ../api/empire/:id
+
 
 ## Technology used
 
