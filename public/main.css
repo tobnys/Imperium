@@ -295,6 +295,7 @@ footer p {
     font-size: 14px;
     font-weight: bold;
     color: white;
+    text-shadow: 1px 1px 3px black;
 }
 
 .buy-panel hr {
@@ -370,6 +371,11 @@ footer p {
     padding-right: 0;
 }
 
+.fa-user {
+    padding: 0;
+    margin-right: 10px;
+}
+
 .normal-btn {
     float: left;
     justify-content: left;
@@ -418,26 +424,27 @@ footer p {
     background: #37474f;
     text-decoration: none;
     color: #444;
-    margin: 20px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     height: 350px;
+    margin-top: 20px;
 }
 
 .overview p {
     color: white;
+    font-size: 18px;
+    font-weight: bold;
     text-shadow: 2px 2px 10px black;
 }
 
 .pop-overlay {
     display: block;
-    margin: auto;
-    width: 300px;
+    width: 20%;
     height: 80px;
     position: fixed;
-    left: 0;
-    right: 0;
     top: -200px;
-    bottom: 900px;
+    left: 40%;
     background-color: #345C70;
     border: 3px solid black;
     z-index: 1;
@@ -490,8 +497,16 @@ footer p {
     margin-bottom: 100px;
 }
 
+/* Large screens */
+/*@media all and (min-width: 800px) {
+    .col-center {
+        max-width: 100%;
+        text-align: center;
+    }
+}*/
+
 /* Small screens */
-@media (max-width: 575px) {
+@media all and (max-width: 768px) {
     main {
         padding-top: 50px;
     }
@@ -562,14 +577,14 @@ footer p {
 
     .overview {
         width: 70%;
-        margin-left: 70px;
     }
 
     .buy-panel {
-        width: 200px;
+        width: 80%;
         height: 200px;
         margin-top: 20px;
-        margin-left: 100px;
+        margin-left: auto;
+        margin-right: auto;
         margin-bottom: 5px;
     }
 
@@ -599,16 +614,29 @@ footer p {
         height: 300px;
     }
 
-}
-/* Medium screens */
-@media all and (min-width: 600px) {
+    .pop-overlay {
+        width: 40%;
+        left: 30%;
+    }
 
 }
 
-/* Large screens */
-@media all and (max-width: 800px) {
-    .col-center {
-        max-width: 100%;
-        text-align: center;
+@media all and (max-width: 480px) {
+    .gameNav a {
+        display: block;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem;
+        margin-top: 3px;
+        height: auto;
     }
 }
+
+/* Medium screens */
+/*@media all and (max-width: 320px) {
+    .pop-overlay {
+        width: 30%;
+        left: 35%;
+    }
+}*/
