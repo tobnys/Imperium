@@ -107,9 +107,6 @@ footer p {
     margin-bottom: 5px;
 }
 
-.empire-item {
-}
-
 .empire-btn {
     margin-top: 5px;
     width: 100px;
@@ -150,9 +147,6 @@ footer p {
 
 
 /* GAME CSS */
-
-
-
 #buypanel-description {
     margin-top: 10px;
     margin-bottom: 75px;
@@ -371,11 +365,6 @@ footer p {
     padding-right: 0;
 }
 
-.fa-user {
-    padding: 0;
-    margin-right: 10px;
-}
-
 .normal-btn {
     float: left;
     justify-content: left;
@@ -497,15 +486,6 @@ footer p {
     margin-bottom: 100px;
 }
 
-/* Large screens */
-/*@media all and (min-width: 800px) {
-    .col-center {
-        max-width: 100%;
-        text-align: center;
-    }
-}*/
-
-/* Small screens */
 @media all and (max-width: 768px) {
     main {
         padding-top: 50px;
@@ -632,11 +612,3 @@ footer p {
         height: auto;
     }
 }
-
-/* Medium screens */
-/*@media all and (max-width: 320px) {
-    .pop-overlay {
-        width: 30%;
-        left: 35%;
-    }
-}*/

@@ -2,21 +2,6 @@
     let empire;
     let currentView = "overview";
 
-    const entities = {
-        "workers": {
-            cost: 100,
-            revenue: 10
-        },
-        "industryBuilding": {
-            cost: 500,
-            revenue: 25
-        },
-        "company": {
-            cost: 2000,
-            revenue: 100
-        }
-    }
-
     // GET CALL TO API IN ORDER TO RETRIEVE INFORMATION ABOUT THE 3 BASE EMPIRES
     $.ajax({
         type: "GET",
