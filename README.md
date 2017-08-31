@@ -33,7 +33,6 @@ Retrieves a single matching empire object from the database using the query from
  
 **Back-end**
  * NodeJS
- * Custom crafted API
  * Mongoose / MongoDB
  * Heroku (hosting)
 
