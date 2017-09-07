@@ -87,7 +87,7 @@ footer p {
 }
 
 .empire-picture {
-    width: 80px;
+    width: 110px;
     height: 80px;
     padding-top: 10px;
 }
@@ -448,6 +448,44 @@ footer p {
     text-shadow: 1px 1px 3px black;
 }
 
+.tutorial-overlay {
+    display: block;
+    margin: auto;
+    width: 500px;
+    height: 400px;
+    position: fixed;
+    left:0;
+    right: 0;
+    top: 40px;
+    bottom: 0;
+    background-color: #345C70;
+    border: 3px solid black;
+    z-index: 1;
+}
+
+.tutorial-overlay p {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+
+.tutorial-overlay h1 {
+    color: #FFFFFF;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 3px black;
+}
+
+.tutorial-overlay button {
+    margin-top: 40px;
+    text-align: center;
+}
+
 .crate-overlay {
     display: block;
     margin: auto;
@@ -597,6 +635,13 @@ footer p {
     .pop-overlay {
         width: 40%;
         left: 30%;
+    }
+
+    .tutorial-overlay {
+        display: block;
+        margin: auto;
+        width: 300px;
+        height: 500px;
     }
 
 }

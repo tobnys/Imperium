@@ -56,6 +56,29 @@
         opacity: 0
     });
 
+    // POP OVERLAY
+
+    $(".tutorial-overlay").animate({
+        opacity: 0
+    }, 1, function(){
+        $(".tutorial-overlay").animate({
+            opacity: 1
+        });
+        $(".game-window").not(".tutorial-overlay").addClass("blur");
+    });
+
+    $(".js-done-tutorial").click(function(){
+        $(".tutorial-overlay").animate({
+            opacity: 0,
+            top: -50,
+        }, 300, function(){
+        // HIDE OVERLAY
+        $(".tutorial-overlay").hide();
+        });
+        // UNBLUR THE BACKGROUND
+        $(".game-window").removeClass("blur");
+    });
+
     // UPDATE STATS
     function updateCurrentStats() {
         // ECONOMICS VIEW
