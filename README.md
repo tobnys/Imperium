@@ -45,6 +45,8 @@ Design was not my main priority during this project, I wanted to focus on the fu
 
 
 ## Images
-![image1](https://i.gyazo.com/0f065c134f441dc74c489b99cdb891a9.png)
+![image1](https://i.gyazo.com/d25de5a06546f4518a3ebfdd07314075.png)
 
-![image2](https://i.gyazo.com/5b5afe4482be599d7d83595a60c33825.jpg)
+![image2](https://i.gyazo.com/111d6234c74eb1fc1c13944427b07c17.png)
+
+![image3](https://i.gyazo.com/9c2cb3ba45c7387a7cbfe5981f4c3235.png)
